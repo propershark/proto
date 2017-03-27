@@ -1,0 +1,39 @@
+name: Timetable.visits_between
+id: timetable_visits_between
+spec:
+  call: 'timetable.visits_between(station : String, start : DateTime, end : DateTime, route : String?, limit : Int)'
+  return: '[(eta, etd, route_short_name, headsign)...]'
+meta:
+  since: v0.1
+  accessibility: public
+  minimum_role: consumer
+
+description: |-
+  Returns an ordered list of estimated departures from the given `station`, where the departure time is within the range `[start, end]`. The arrival time of the visit may be outside of the given datetime range, depending on the scheduled [dwell time](https://en.wikipedia.org/wiki/Terminal_dwell_time) of the underlying `stop_time`.
+
+  The `route` parameter is optional. When given, it is expect to match the `short_name` of a route that the agency provides. In this case, visits from other routes are excluded from the result list. When omitted, all visits (regardless of route) are included in the result list. To retrieve visits for only a select set of routes, make a separate call for each route.
+
+  Note that `limit` is only an upper-bound on the number of results that may be returned. If fewer than `limit` visits are active within the given datetime range, the result list will only contain that many entries. That is, the size of the result list is `min(active_visits, limit)`.
+
+
+  If the result list contains no entries, an empty array will be returned.
+
+samples:
+  WAMP:
+    call: |-
+      # Without route parameter
+      timetable.visits_between('BUS215', '20170130 06:40:00', '20170130 06:55:00', 10)
+      # With route parameter
+      timetable.visits_between('BUS215', '20170130 06:40:00', '20170130 06:55:00', '1B', 10)
+    return: |-
+      # Without route parameter
+      [
+        ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],
+        ['20170130 06:35:00','20170130 06:45:00','5','to Salisbury'],
+        ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']
+      ]
+      # With route parameter
+      [
+        ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],
+        ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']
+      ]

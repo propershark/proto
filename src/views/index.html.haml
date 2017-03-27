@@ -1,0 +1,63 @@
+!!!
+%html
+  %head
+    %title Proper Shark Protocol
+    %link(rel="stylesheet" href="styles/normalize.css")
+    %link(rel="stylesheet" href="styles/main.css")
+
+  %body
+    .container
+
+      %nav.nav
+        %h1 Proper Shark Protocol
+
+        %ul
+
+      .protocol
+        - Dir['data/rpcs/*.yaml'].map{ |f| YAML.load_file(f) }.each do |rpc|
+          %div{class: "proto-action #{rpc['meta']['accessibility']}"}
+            .proto-title{id: "action_#{rpc['id']}"}
+              %pre= rpc['name']
+              .proto-meta
+                - rpc['meta'].each do |key, value|
+                  %span.proto-meta-record
+                    %span.proto-meta-record-key>= key.gsub(/_/, ' ')
+                    \:
+                    %span.proto-meta-record-value= value.gsub(/_/, ' ')
+            .proto-call-spec
+              %pre
+                = rpc['spec']['call']
+                %br
+                = "-> #{rpc['spec']['return']}"
+            .proto-description
+              :markdown
+                #{rpc['description']}
+            .proto-samples
+              %ul.proto-sample-platform-select
+                - is_first = true
+                - rpc['samples'].each do |platform, _|
+                  %input{checked: is_first, 'data-content-target': "proto_sample_#{rpc['func_name']}_#{platform}", id: "#{rpc['func_name']}_#{platform}", name: "#{rpc['func_name']}_sample_platform", type: "radio"}
+                  %label{for: "#{rpc['func_name']}_#{platform}"}= platform
+                  - is_first = false
+              - rpc['samples'].each do |platform, sample|
+                .proto-sample{id: "proto_sample_#{rpc['func_name']}_#{platform}"}
+                  .proto-sample-content
+                    .request
+                      %pre
+                        %code= html_escape(sample['call'])
+                    .response
+                      %pre
+                        %code= html_escape(sample['return'])
+
+
+  %script(src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous")
+
+  :javascript
+    $('.proto-action').each(function() {
+      $(this).find('.proto-sample').first().toggleClass("visible");
+    });
+
+    $('input[type=radio]').change(function() {
+      $(this).closest('.proto-action').find(".proto-sample.visible").toggleClass("visible", false);
+      $('[id="'+$(this).data('content-target')+'"]').toggleClass("visible", $(this).checked);
+    });
