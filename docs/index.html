@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Proper Shark Protocol</title>
+    <link href='styles/normalize.css' rel='stylesheet'>
+    <link href='styles/main.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class='container'>
+      <nav class='nav'>
+        <h1>Proper Shark Protocol</h1>
+        <ul></ul>
+      </nav>
+      <div class='protocol'>
+        <div class='proto-action public'>
+          <div class='proto-title' id='action_timetable_visits_between'>
+            <pre>Timetable.visits_between</pre>
+            <div class='proto-meta'>
+              <span class='proto-meta-record'><span class='proto-meta-record-key'>since</span>:
+                <span class='proto-meta-record-value'>v0.1</span>
+              </span>
+              <span class='proto-meta-record'><span class='proto-meta-record-key'>accessibility</span>:
+                <span class='proto-meta-record-value'>public</span>
+              </span>
+              <span class='proto-meta-record'><span class='proto-meta-record-key'>minimum role</span>:
+                <span class='proto-meta-record-value'>consumer</span>
+              </span>
+            </div>
+          </div>
+          <div class='proto-call-spec'>
+            <pre>timetable.visits_between(station : String, start : DateTime, end : DateTime, route : String?, limit : Int)            <br>-> [(eta, etd, route_short_name, headsign)...]</pre>
+          </div>
+          <div class='proto-description'>
+            <p>Returns an ordered list of estimated departures from the given <code>station</code>, where the departure time is within the range <code>[start, end]</code>. The arrival time of the visit may be outside of the given datetime range, depending on the scheduled <a href="https://en.wikipedia.org/wiki/Terminal_dwell_time">dwell time</a> of the underlying <code>stop_time</code>.</p>
+            <p>The <code>route</code> parameter is optional. When given, it is expect to match the <code>short_name</code> of a route that the agency provides. In this case, visits from other routes are excluded from the result list. When omitted, all visits (regardless of route) are included in the result list. To retrieve visits for only a select set of routes, make a separate call for each route.</p>
+            <p>Note that <code>limit</code> is only an upper-bound on the number of results that may be returned. If fewer than <code>limit</code> visits are active within the given datetime range, the result list will only contain that many entries. That is, the size of the result list is <code>min(active_visits, limit)</code>.</p>
+            <p>If the result list contains no entries, an empty array will be returned.</p>
+          </div>
+          <div class='proto-samples'>
+            <ul class='proto-sample-platform-select'>
+              <input checked data-content-target='proto_sample__WAMP' id='_WAMP' name='_sample_platform' type='radio'>
+              <label for='_WAMP'>WAMP</label>
+            </ul>
+            <div class='proto-sample' id='proto_sample__WAMP'>
+              <div class='proto-sample-content'>
+                <div class='request'>
+                  <pre><code># Without route parameter&#x000A;timetable.visits_between('BUS215', '20170130 06:40:00', '20170130 06:55:00', 10)&#x000A;# With route parameter&#x000A;timetable.visits_between('BUS215', '20170130 06:40:00', '20170130 06:55:00', '1B', 10)</code></pre>
+                </div>
+                <div class='response'>
+                  <pre><code># Without route parameter&#x000A;[&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;  ['20170130 06:35:00','20170130 06:45:00','5','to Salisbury'],&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;]&#x000A;# With route parameter&#x000A;[&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;]</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script crossorigin='anonymous' integrity='sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=' src='https://code.jquery.com/jquery-3.1.1.slim.min.js'></script>
+  <script>
+    $('.proto-action').each(function() {
+      $(this).find('.proto-sample').first().toggleClass("visible");
+    });
+    
+    $('input[type=radio]').change(function() {
+      $(this).closest('.proto-action').find(".proto-sample.visible").toggleClass("visible", false);
+      $('[id="'+$(this).data('content-target')+'"]').toggleClass("visible", $(this).checked);
+    });
+  </script>
+</html>
