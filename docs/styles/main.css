@@ -95,7 +95,7 @@ code {
   font-size: 10px;
   background-color: #eee; }
   .proto-call-spec pre {
-    overflow: scroll; }
+    overflow: hidden; }
 
 .proto-description {
   padding: 0 12px; }

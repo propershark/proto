@@ -125,7 +125,7 @@ code {
   font-size: 10px;
   background-color: #eee;
 
-  pre { overflow: scroll; }
+  pre { overflow: hidden; }
 }
 
 
@@ -184,6 +184,7 @@ code {
     }
   }
 }
+
 
 input[type=radio] {
   display: none;
