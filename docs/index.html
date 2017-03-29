@@ -9,11 +9,17 @@
     <div class='container'>
       <nav class='nav'>
         <h1>Proper Shark Protocol</h1>
-        <ul></ul>
+        <ul>
+          <li>
+            <a href='#timetable_visits_between'>
+              Timetable.visits_between
+            </a>
+          </li>
+        </ul>
       </nav>
       <div class='protocol'>
         <div class='proto-action public'>
-          <div class='proto-title' id='action_timetable_visits_between'>
+          <div class='proto-title' id='timetable_visits_between'>
             <pre>Timetable.visits_between</pre>
             <div class='proto-meta'>
               <span class='proto-meta-record'><span class='proto-meta-record-key'>since</span>:
@@ -28,7 +34,13 @@
             </div>
           </div>
           <div class='proto-call-spec'>
-            <pre>timetable.visits_between(station : String, start : DateTime, end : DateTime, route : String?, limit : Int)            <br>-> [(eta, etd, route_short_name, headsign)...]</pre>
+            <pre>timetable.visits_between(
+              station : String,
+              start : DateTime,
+              end : DateTime,
+              route : String?,
+              limit : Int
+            )            <br>-> [(eta, etd, route_short_name, headsign)...]</pre>
           </div>
           <div class='proto-description'>
             <p>Returns an ordered list of estimated departures from the given <code>station</code>, where the departure time is within the range <code>[start, end]</code>. The arrival time of the visit may be outside of the given datetime range, depending on the scheduled <a href="https://en.wikipedia.org/wiki/Terminal_dwell_time">dwell time</a> of the underlying <code>stop_time</code>.</p>

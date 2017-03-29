@@ -6,17 +6,23 @@
     %link(rel="stylesheet" href="styles/main.css")
 
   %body
+    - @rpcs = Dir['data/rpcs/*.yaml'].map{ |f| YAML.load_file(f) }
+
     .container
 
       %nav.nav
         %h1 Proper Shark Protocol
 
         %ul
+          - @rpcs.each do |rpc|
+            %li
+              %a{href: "##{rpc['id']}"}
+                = rpc['name']
 
       .protocol
-        - Dir['data/rpcs/*.yaml'].map{ |f| YAML.load_file(f) }.each do |rpc|
+        - @rpcs.each do |rpc|
           %div{class: "proto-action #{rpc['meta']['accessibility']}"}
-            .proto-title{id: "action_#{rpc['id']}"}
+            .proto-title{id: "#{rpc['id']}"}
               %pre= rpc['name']
               .proto-meta
                 - rpc['meta'].each do |key, value|
@@ -24,14 +30,17 @@
                     %span.proto-meta-record-key>= key.gsub(/_/, ' ')
                     \:
                     %span.proto-meta-record-value= value.gsub(/_/, ' ')
+
             .proto-call-spec
               %pre
                 = rpc['spec']['call']
                 %br
                 = "-> #{rpc['spec']['return']}"
+
             .proto-description
               :markdown
                 #{rpc['description']}
+
             .proto-samples
               %ul.proto-sample-platform-select
                 - is_first = true
