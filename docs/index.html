@@ -4,6 +4,7 @@
     <title>Proper Shark Protocol</title>
     <link href='styles/normalize.css' rel='stylesheet'>
     <link href='styles/main.css' rel='stylesheet'>
+    <link crossorigin='anonymous' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN' rel='stylesheet'>
   </head>
   <body>
     <div class='container'>
@@ -20,6 +21,11 @@
       <div class='protocol'>
         <div class='proto-action public'>
           <div class='proto-title' id='timetable_visits_between'>
+            <div class='proto-links'>
+              <a href='https://github.com/propershark/timetable_cpp/issues/1' target='_blank'>
+                <span class='fa fa-lg fa-comments-o'></span>
+              </a>
+            </div>
             <pre>Timetable.visits_between</pre>
             <div class='proto-meta'>
               <span class='proto-meta-record'><span class='proto-meta-record-key'>since</span>:
@@ -34,13 +40,7 @@
             </div>
           </div>
           <div class='proto-call-spec'>
-            <pre>timetable.visits_between(
-              station : String,
-              start : DateTime,
-              end : DateTime,
-              route : String?,
-              limit : Int
-            )            <br>-> [(eta, etd, route_short_name, headsign)...]</pre>
+            <pre>timetable.visits_between(station : String, start : DateTime, end : DateTime, route : String?, limit : Int)            <br>-> [(eta, etd, route_short_name, headsign)...]</pre>
           </div>
           <div class='proto-description'>
             <p>Returns an ordered list of estimated departures from the given <code>station</code>, where the departure time is within the range <code>[start, end]</code>. The arrival time of the visit may be outside of the given datetime range, depending on the scheduled <a href="https://en.wikipedia.org/wiki/Terminal_dwell_time">dwell time</a> of the underlying <code>stop_time</code>.</p>

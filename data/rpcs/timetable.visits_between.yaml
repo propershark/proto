@@ -7,6 +7,8 @@ meta:
   since: v0.1
   accessibility: public
   minimum_role: consumer
+links:
+  discussion: https://github.com/propershark/timetable_cpp/issues/1
 
 description: |-
   Returns an ordered list of estimated departures from the given `station`, where the departure time is within the range `[start, end]`. The arrival time of the visit may be outside of the given datetime range, depending on the scheduled [dwell time](https://en.wikipedia.org/wiki/Terminal_dwell_time) of the underlying `stop_time`.

@@ -79,6 +79,13 @@ code {
         font-weight: 200; }
       .proto-title .proto-meta .proto-meta-record .proto-meta-record-value {
         font-weight: 600; }
+  .proto-title .proto-links {
+    float: right;
+    font-size: 16px; }
+    .proto-title .proto-links a {
+      color: inherit; }
+      .proto-title .proto-links a:hover {
+        text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2); }
 
 .private.proto-action {
   border: 1px solid #c58285; }

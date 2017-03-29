@@ -4,9 +4,13 @@
     %title Proper Shark Protocol
     %link(rel="stylesheet" href="styles/normalize.css")
     %link(rel="stylesheet" href="styles/main.css")
+    %link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous")
 
   %body
     - @rpcs = Dir['data/rpcs/*.yaml'].map{ |f| YAML.load_file(f) }
+    - def fa icon_name
+      - "<span class='fa #{icon_name}'></span>"
+
 
     .container
 
@@ -23,6 +27,11 @@
         - @rpcs.each do |rpc|
           %div{class: "proto-action #{rpc['meta']['accessibility']}"}
             .proto-title{id: "#{rpc['id']}"}
+              .proto-links
+                - if rpc['links']['discussion']
+                  %a{href: rpc['links']['discussion'], target: '_blank'}
+                    = fa 'fa-lg fa-comments-o'
+
               %pre= rpc['name']
               .proto-meta
                 - rpc['meta'].each do |key, value|
@@ -31,15 +40,18 @@
                     \:
                     %span.proto-meta-record-value= value.gsub(/_/, ' ')
 
+
             .proto-call-spec
               %pre
                 = rpc['spec']['call']
                 %br
                 = "-> #{rpc['spec']['return']}"
 
+
             .proto-description
               :markdown
                 #{rpc['description']}
+
 
             .proto-samples
               %ul.proto-sample-platform-select
@@ -57,6 +69,7 @@
                     .response
                       %pre
                         %code= html_escape(sample['return'])
+
 
 
   %script(src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous")
