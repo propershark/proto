@@ -12,6 +12,16 @@
         <h1>Proper Shark Protocol</h1>
         <ul>
           <li>
+            <a href='#timetable_visits_after'>
+              Timetable.visits_after
+            </a>
+          </li>
+          <li>
+            <a href='#timetable_visits_before'>
+              Timetable.visits_before
+            </a>
+          </li>
+          <li>
             <a href='#timetable_visits_between'>
               Timetable.visits_between
             </a>
@@ -19,6 +29,116 @@
         </ul>
       </nav>
       <div class='protocol'>
+        <div class='proto-action public'>
+          <div class='proto-title' id='timetable_visits_after'>
+            <div class='proto-links'>
+            </div>
+            <pre>Timetable.visits_after</pre>
+            <div class='proto-meta'>
+              <span class='proto-meta-record'><span class='proto-meta-record-key'>since</span>:
+                <span class='proto-meta-record-value'>v0.1</span>
+              </span>
+              <span class='proto-meta-record'><span class='proto-meta-record-key'>accessibility</span>:
+                <span class='proto-meta-record-value'>public</span>
+              </span>
+              <span class='proto-meta-record'><span class='proto-meta-record-key'>minimum role</span>:
+                <span class='proto-meta-record-value'>consumer</span>
+              </span>
+            </div>
+          </div>
+          <div class='proto-call-spec'>
+            <pre>timetable.visits_after(station : String, start : DateTime, route : String?, limit : Int)            <br>-> [(eta, etd, route_short_name, headsign)...]</pre>
+          </div>
+          <div class='proto-description'>
+            <p>Returns an ordered list of estimated departures from the given <code>station</code>, where the departure time is at or after <code>start</code>. The arrival time of the visit may be before <code>start</code>, depending on the scheduled <a href="https://en.wikipedia.org/wiki/Terminal_dwell_time">dwell time</a> of the underlying <code>stop_time</code>.</p>
+            <p>The <code>route</code> parameter is optional. When given, it is expect to match the <code>short_name</code> of a route that the agency provides. In this case, visits from other routes are excluded from the result list. When omitted, all visits (regardless of route) are included in the result list. To retrieve visits for only a select set of routes, make a separate call for each route.</p>
+            <p>Note that <code>limit</code> is only an upper-bound on the number of results that may be returned. If fewer than <code>limit</code> visits are active after <code>start</code>, the result list will only contain that many entries. That is, the size of the result list is <code>min(active_visits, limit)</code>.</p>
+            <p>If the result list contains no entries, an empty array will be returned.</p>
+          </div>
+          <div class='proto-samples'>
+            <ul class='proto-sample-select'>
+              <input checked data-content-target='proto_sample_timetable_visits_after_Without-Route-Parameter' id='timetable_visits_after_Without-Route-Parameter' name='timetable_visits_after' type='radio'>
+              <label for='timetable_visits_after_Without-Route-Parameter'>Without Route Parameter</label>
+              <input data-content-target='proto_sample_timetable_visits_after_With-Route-Parameter' id='timetable_visits_after_With-Route-Parameter' name='timetable_visits_after' type='radio'>
+              <label for='timetable_visits_after_With-Route-Parameter'>With Route Parameter</label>
+            </ul>
+            <div class='proto-sample' id='proto_sample_timetable_visits_after_Without-Route-Parameter'>
+              <div class='proto-sample-content'>
+                <div class='request'>
+                  <pre><code>timetable.visits_after('BUS215', '20170130 06:40:00', 10)</code></pre>
+                </div>
+                <div class='response'>
+                  <pre><code>[&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;  ['20170130 06:35:00','20170130 06:45:00','5','to Salisbury'],&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;]</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class='proto-sample' id='proto_sample_timetable_visits_after_With-Route-Parameter'>
+              <div class='proto-sample-content'>
+                <div class='request'>
+                  <pre><code>timetable.visits_after('BUS215', '20170130 06:40:00', '1B', 10)</code></pre>
+                </div>
+                <div class='response'>
+                  <pre><code>[&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;]</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='proto-action public'>
+          <div class='proto-title' id='timetable_visits_before'>
+            <div class='proto-links'>
+            </div>
+            <pre>Timetable.visits_before</pre>
+            <div class='proto-meta'>
+              <span class='proto-meta-record'><span class='proto-meta-record-key'>since</span>:
+                <span class='proto-meta-record-value'>v0.1</span>
+              </span>
+              <span class='proto-meta-record'><span class='proto-meta-record-key'>accessibility</span>:
+                <span class='proto-meta-record-value'>public</span>
+              </span>
+              <span class='proto-meta-record'><span class='proto-meta-record-key'>minimum role</span>:
+                <span class='proto-meta-record-value'>consumer</span>
+              </span>
+            </div>
+          </div>
+          <div class='proto-call-spec'>
+            <pre>timetable.visits_before(station : String, end : DateTime, route : String?, limit : Int)            <br>-> [(eta, etd, route_short_name, headsign)...]</pre>
+          </div>
+          <div class='proto-description'>
+            <p>Returns an ordered list of estimated departures from the given <code>station</code>, where the departure time is at or before <code>end</code>. Visits are ordered ascending by departure time.</p>
+            <p>The <code>route</code> parameter is optional. When given, it is expect to match the <code>short_name</code> of a route that the agency provides. In this case, visits from other routes are excluded from the result list. When omitted, all visits (regardless of route) are included in the result list. To retrieve visits for only a select set of routes, make a separate call for each route.</p>
+            <p>Note that <code>limit</code> is only an upper-bound on the number of results that may be returned. If fewer than <code>limit</code> visits are active before <code>end</code>, the result list will only contain that many entries. That is, the size of the result list is <code>min(active_visits, limit)</code>.</p>
+            <p>If the result list contains no entries, an empty array will be returned.</p>
+          </div>
+          <div class='proto-samples'>
+            <ul class='proto-sample-select'>
+              <input checked data-content-target='proto_sample_timetable_visits_before_Without-Route-Parameter' id='timetable_visits_before_Without-Route-Parameter' name='timetable_visits_before' type='radio'>
+              <label for='timetable_visits_before_Without-Route-Parameter'>Without Route Parameter</label>
+              <input data-content-target='proto_sample_timetable_visits_before_With-Route-Parameter' id='timetable_visits_before_With-Route-Parameter' name='timetable_visits_before' type='radio'>
+              <label for='timetable_visits_before_With-Route-Parameter'>With Route Parameter</label>
+            </ul>
+            <div class='proto-sample' id='proto_sample_timetable_visits_before_Without-Route-Parameter'>
+              <div class='proto-sample-content'>
+                <div class='request'>
+                  <pre><code>timetable.visits_before('BUS215', '20170130 06:50:00', 10)</code></pre>
+                </div>
+                <div class='response'>
+                  <pre><code>[&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;  ['20170130 06:35:00','20170130 06:45:00','5','to Salisbury'],&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;]</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class='proto-sample' id='proto_sample_timetable_visits_before_With-Route-Parameter'>
+              <div class='proto-sample-content'>
+                <div class='request'>
+                  <pre><code>timetable.visits_before('BUS215', '20170130 06:50:00', '1B', 10)</code></pre>
+                </div>
+                <div class='response'>
+                  <pre><code>[&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;]</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class='proto-action public'>
           <div class='proto-title' id='timetable_visits_between'>
             <div class='proto-links'>
@@ -50,12 +170,12 @@
           </div>
           <div class='proto-samples'>
             <ul class='proto-sample-select'>
-              <input checked data-content-target='proto_sample__Without Route Parameter' id='_Without Route Parameter' name='_sample_platform' type='radio'>
-              <label for='_Without Route Parameter'>Without Route Parameter</label>
-              <input data-content-target='proto_sample__With Route Parameter' id='_With Route Parameter' name='_sample_platform' type='radio'>
-              <label for='_With Route Parameter'>With Route Parameter</label>
+              <input checked data-content-target='proto_sample_timetable_visits_between_Without-Route-Parameter' id='timetable_visits_between_Without-Route-Parameter' name='timetable_visits_between' type='radio'>
+              <label for='timetable_visits_between_Without-Route-Parameter'>Without Route Parameter</label>
+              <input data-content-target='proto_sample_timetable_visits_between_With-Route-Parameter' id='timetable_visits_between_With-Route-Parameter' name='timetable_visits_between' type='radio'>
+              <label for='timetable_visits_between_With-Route-Parameter'>With Route Parameter</label>
             </ul>
-            <div class='proto-sample' id='proto_sample__Without Route Parameter'>
+            <div class='proto-sample' id='proto_sample_timetable_visits_between_Without-Route-Parameter'>
               <div class='proto-sample-content'>
                 <div class='request'>
                   <pre><code>timetable.visits_between('BUS215', '20170130 06:40:00', '20170130 06:55:00', 10)</code></pre>
@@ -65,7 +185,7 @@
                 </div>
               </div>
             </div>
-            <div class='proto-sample' id='proto_sample__With Route Parameter'>
+            <div class='proto-sample' id='proto_sample_timetable_visits_between_With-Route-Parameter'>
               <div class='proto-sample-content'>
                 <div class='request'>
                   <pre><code>timetable.visits_between('BUS215', '20170130 06:40:00', '20170130 06:55:00', '1B', 10)</code></pre>
