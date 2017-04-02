@@ -8,7 +8,7 @@ body {
   color: #333;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI';
   font-size: 12px;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 pre {
@@ -26,9 +26,15 @@ pre {
 }
 
 code {
-  background-color: #eee;
-  padding: 0 4px;
+  background-color: #f2f2f2;
+  padding: 1px 4px;
   border-radius: 2px;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
 }
 
 
@@ -165,6 +171,7 @@ code {
       flex-grow: 1;
       padding: 6px 12px;
       background-color: #ccc;
+      cursor: pointer;
     }
 
     input[type=radio]:checked + label {
