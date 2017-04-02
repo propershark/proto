@@ -112,18 +112,18 @@ code {
 .proto-samples {
   position: relative;
   background-color: #eee; }
-  .proto-samples .proto-sample-platform-select {
+  .proto-samples .proto-sample-select {
     display: flex;
     padding: 0;
     margin: 0;
     list-style-type: none; }
-    .proto-samples .proto-sample-platform-select label {
+    .proto-samples .proto-sample-select label {
       display: inline-block;
       text-align: center;
       flex-grow: 1;
       padding: 6px 12px;
       background-color: #ccc; }
-    .proto-samples .proto-sample-platform-select input[type=radio]:checked + label {
+    .proto-samples .proto-sample-select input[type=radio]:checked + label {
       background-color: #eee; }
   .proto-samples .proto-sample {
     display: none; }

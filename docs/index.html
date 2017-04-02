@@ -49,17 +49,29 @@
             <p>If the result list contains no entries, an empty array will be returned.</p>
           </div>
           <div class='proto-samples'>
-            <ul class='proto-sample-platform-select'>
-              <input checked data-content-target='proto_sample__WAMP' id='_WAMP' name='_sample_platform' type='radio'>
-              <label for='_WAMP'>WAMP</label>
+            <ul class='proto-sample-select'>
+              <input checked data-content-target='proto_sample__Without Route Parameter' id='_Without Route Parameter' name='_sample_platform' type='radio'>
+              <label for='_Without Route Parameter'>Without Route Parameter</label>
+              <input data-content-target='proto_sample__With Route Parameter' id='_With Route Parameter' name='_sample_platform' type='radio'>
+              <label for='_With Route Parameter'>With Route Parameter</label>
             </ul>
-            <div class='proto-sample' id='proto_sample__WAMP'>
+            <div class='proto-sample' id='proto_sample__Without Route Parameter'>
               <div class='proto-sample-content'>
                 <div class='request'>
-                  <pre><code># Without route parameter&#x000A;timetable.visits_between('BUS215', '20170130 06:40:00', '20170130 06:55:00', 10)&#x000A;# With route parameter&#x000A;timetable.visits_between('BUS215', '20170130 06:40:00', '20170130 06:55:00', '1B', 10)</code></pre>
+                  <pre><code>timetable.visits_between('BUS215', '20170130 06:40:00', '20170130 06:55:00', 10)</code></pre>
                 </div>
                 <div class='response'>
-                  <pre><code># Without route parameter&#x000A;[&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;  ['20170130 06:35:00','20170130 06:45:00','5','to Salisbury'],&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;]&#x000A;# With route parameter&#x000A;[&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;]</code></pre>
+                  <pre><code>[&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;  ['20170130 06:35:00','20170130 06:45:00','5','to Salisbury'],&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;]</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class='proto-sample' id='proto_sample__With Route Parameter'>
+              <div class='proto-sample-content'>
+                <div class='request'>
+                  <pre><code>timetable.visits_between('BUS215', '20170130 06:40:00', '20170130 06:55:00', '1B', 10)</code></pre>
+                </div>
+                <div class='response'>
+                  <pre><code>[&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;]</code></pre>
                 </div>
               </div>
             </div>

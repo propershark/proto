@@ -54,14 +54,14 @@
 
 
             .proto-samples
-              %ul.proto-sample-platform-select
+              %ul.proto-sample-select
                 - is_first = true
-                - rpc['samples'].each do |platform, _|
-                  %input{checked: is_first, 'data-content-target': "proto_sample_#{rpc['func_name']}_#{platform}", id: "#{rpc['func_name']}_#{platform}", name: "#{rpc['func_name']}_sample_platform", type: "radio"}
-                  %label{for: "#{rpc['func_name']}_#{platform}"}= platform
+                - rpc['samples'].each do |name, _|
+                  %input{checked: is_first, 'data-content-target': "proto_sample_#{rpc['func_name']}_#{name}", id: "#{rpc['func_name']}_#{name}", name: "#{rpc['func_name']}_sample_platform", type: "radio"}
+                  %label{for: "#{rpc['func_name']}_#{name}"}= name
                   - is_first = false
-              - rpc['samples'].each do |platform, sample|
-                .proto-sample{id: "proto_sample_#{rpc['func_name']}_#{platform}"}
+              - rpc['samples'].each do |name, sample|
+                .proto-sample{id: "proto_sample_#{rpc['func_name']}_#{name}"}
                   .proto-sample-content
                     .request
                       %pre
