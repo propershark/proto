@@ -28,7 +28,7 @@
           %div{class: "proto-action #{rpc['meta']['accessibility']}"}
             .proto-title{id: "#{rpc['id']}"}
               .proto-links
-                - if rpc['links']['discussion']
+                - if rpc.dig('links', 'discussion')
                   %a{href: rpc['links']['discussion'], target: '_blank'}
                     = fa 'fa-lg fa-comments-o'
 
