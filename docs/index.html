@@ -105,7 +105,7 @@
             <pre>timetable.visits_before(station : String, end : DateTime, route : String?, limit : Int)            <br>-> [(eta, etd, route_short_name, headsign)...]</pre>
           </div>
           <div class='proto-description'>
-            <p>Returns an ordered list of estimated departures from the given <code>station</code>, where the departure time is at or before <code>end</code>. Visits are ordered ascending by departure time.</p>
+            <p>Returns an ordered list of estimated departures from the given <code>station</code>, where the departure time is at or before <code>end</code>. Visits are ordered descending by departure time. Note that the arrival times may not appear sorted, depending on the scheduled <a href="https://en.wikipedia.org/wiki/Terminal_dwell_time">dwell time</a> for the underlying <code>stop_time</code>.</p>
             <p>The <code>route</code> parameter is optional. When given, it is expect to match the <code>short_name</code> of a route that the agency provides. In this case, visits from other routes are excluded from the result list. When omitted, all visits (regardless of route) are included in the result list. To retrieve visits for only a select set of routes, make a separate call for each route.</p>
             <p>Note that <code>limit</code> is only an upper-bound on the number of results that may be returned. If fewer than <code>limit</code> visits are active before <code>end</code>, the result list will only contain that many entries. That is, the size of the result list is <code>min(active_visits, limit)</code>.</p>
             <p>If the result list contains no entries, an empty array will be returned.</p>
@@ -123,7 +123,7 @@
                   <pre><code>timetable.visits_before('BUS215', '20170130 06:50:00', 10)</code></pre>
                 </div>
                 <div class='response'>
-                  <pre><code>[&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;  ['20170130 06:35:00','20170130 06:45:00','5','to Salisbury'],&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;]</code></pre>
+                  <pre><code>[&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;  ['20170130 06:35:00','20170130 06:45:00','5','to Salisbury'],&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;]</code></pre>
                 </div>
               </div>
             </div>
@@ -133,7 +133,7 @@
                   <pre><code>timetable.visits_before('BUS215', '20170130 06:50:00', '1B', 10)</code></pre>
                 </div>
                 <div class='response'>
-                  <pre><code>[&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;]</code></pre>
+                  <pre><code>[&#x000A;  ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']&#x000A;  ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],&#x000A;]</code></pre>
                 </div>
               </div>
             </div>
