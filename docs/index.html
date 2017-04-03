@@ -12,6 +12,11 @@
         <h1>Proper Shark Protocol</h1>
         <ul>
           <li>
+            <a href='#timetable_service_times'>
+              Timetable.service_times
+            </a>
+          </li>
+          <li>
             <a href='#timetable_visits_after'>
               Timetable.visits_after
             </a>
@@ -29,6 +34,61 @@
         </ul>
       </nav>
       <div class='protocol'>
+        <div class='proto-action public'>
+          <div class='proto-title' id='timetable_service_times'>
+            <div class='proto-links'>
+              <a href='https://github.com/propershark/proto/issues/1' target='_blank'>
+                <span class='fa fa-lg fa-comments-o'></span>
+              </a>
+            </div>
+            <pre>Timetable.service_times</pre>
+            <div class='proto-meta'>
+              <span class='proto-meta-record'><span class='proto-meta-record-key'>since</span>:
+                <span class='proto-meta-record-value'>v0.1</span>
+              </span>
+              <span class='proto-meta-record'><span class='proto-meta-record-key'>accessibility</span>:
+                <span class='proto-meta-record-value'>public</span>
+              </span>
+              <span class='proto-meta-record'><span class='proto-meta-record-key'>minimum role</span>:
+                <span class='proto-meta-record-value'>consumer</span>
+              </span>
+            </div>
+          </div>
+          <div class='proto-call-spec'>
+            <pre>timetable.service_times(station : String, route : String)            <br>-> [(date-of-service, [((start-time, end-time), visit-interval), ...]), ...]</pre>
+          </div>
+          <div class='proto-description'>
+            <p>If the result list contains no entries, an empty array will be returned.</p>
+          </div>
+          <div class='proto-samples'>
+            <ul class='proto-sample-select'>
+              <input checked data-content-target='proto_sample_timetable_service_times_Default' id='timetable_service_times_Default' name='timetable_service_times' type='radio'>
+              <label for='timetable_service_times_Default'>Default</label>
+              <input data-content-target='proto_sample_timetable_service_times_Commented' id='timetable_service_times_Commented' name='timetable_service_times' type='radio'>
+              <label for='timetable_service_times_Commented'>Commented</label>
+            </ul>
+            <div class='proto-sample' id='proto_sample_timetable_service_times_Default'>
+              <div class='proto-sample-content'>
+                <div class='request'>
+                  <pre><code>timetable.service_times('BUS123', '1B')</code></pre>
+                </div>
+                <div class='response'>
+                  <pre><code>[&#x000A;  (20170325, [&#x000A;      ((06:45:00, 07:50:00), 00:00:10),&#x000A;      ((08:00:00, 16:55:00), 00:00:05),&#x000A;      ((17:00:00, 22:50:00), 00:00:10)&#x000A;    ]&#x000A;  ),&#x000A;  (20170326, [&#x000A;      ((00:00:00, 03:00:00), 00:00:30),&#x000A;      ((09:00:00, 22:00:00), 00:00:30),&#x000A;      ((22:00:00, 03:00:00), 00:00:30)&#x000A;    ]&#x000A;  ),&#x000A;  (20170327, []),&#x000A;  (20170328, [&#x000A;      ((06:45:00, 07:50:00), 00:00:10),&#x000A;      ((08:00:00, 16:55:00), 00:00:05),&#x000A;      ((17:00:00, 22:50:00), 00:00:10)&#x000A;    ]&#x000A;  )&#x000A;  ...&#x000A;]</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class='proto-sample' id='proto_sample_timetable_service_times_Commented'>
+              <div class='proto-sample-content'>
+                <div class='request'>
+                  <pre><code>timetable.service_times('BUS123', '1B')</code></pre>
+                </div>
+                <div class='response'>
+                  <pre><code>// Array of service records.&#x000A;// This array will always contain 7 entries, each one representing a day of the&#x000A;// week. The first entry will always correspond to the current date according&#x000A;// to the RPC provider.&#x000A;// In this example, the first entry is a Saturday. The final entry would be the&#x000A;// following Friday.&#x000A;[&#x000A;  // Service record&#x000A;  (&#x000A;    // Date of service entry&#x000A;    20170325, // = Saturday&#x000A;    // Array of visit intervals&#x000A;    [&#x000A;      // Interval record&#x000A;      (&#x000A;        // time range of visit interval&#x000A;        (06:45:00, 07:50:00),&#x000A;        // visit interval&#x000A;        00:00:10&#x000A;      ),&#x000A;      // mid-day changes to a service's visit interval are represented as&#x000A;      // separate elements in the intervals array.&#x000A;      ((08:00:00, 16:55:00), 00:00:05), // = 8am- 4:55pm, every  5 minutes&#x000A;      ((17:00:00, 22:50:00), 00:00:10)  // = 5pm-10:50pm, every 10 minutes&#x000A;    ]&#x000A;  ),&#x000A;&#x000A;  // Dates with only one interval record will still contain that record in an&#x000A;  // array to maintain consistency.&#x000A;  (&#x000A;    20170326, // = Sunday&#x000A;    [&#x000A;      ((00:00:00, 03:00:00), 00:00:30),  // = 5pm-10:50pm, every 10 minutes&#x000A;      ((09:00:00, 22:00:00), 00:00:30),&#x000A;      // Intervals that wrap the midnight boundary represent the end of their&#x000A;      // time range as a duration since the most recent midnight. This *should*&#x000A;      // never be later than the start of the time range.&#x000A;      ((22:00:00, 03:00:00), 00:00:30)  // = 5pm-10:50pm, every 10 minutes&#x000A;    ]&#x000A;  ),&#x000A;&#x000A;  // For consistency, dates on which no service is provided will contain a blank&#x000A;  // array value.&#x000A;  (&#x000A;    20170327, // = Monday&#x000A;    []&#x000A;  ),&#x000A;&#x000A;  // Even if multiple dates contain the same interval records, they will be&#x000A;  // listed as distinct service records. It is the client's responsibility to&#x000A;  // group these records by date if desired.&#x000A;  (&#x000A;    20170328, // = Tuesday&#x000A;    [&#x000A;      ((06:45:00, 07:50:00), 00:00:10),&#x000A;      ((08:00:00, 16:55:00), 00:00:05),&#x000A;      ((17:00:00, 22:50:00), 00:00:10)&#x000A;    ]&#x000A;  )&#x000A;&#x000A;  ...&#x000A;]</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class='proto-action public'>
           <div class='proto-title' id='timetable_visits_after'>
             <div class='proto-links'>
