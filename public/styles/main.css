@@ -1,0 +1,151 @@
+body {
+  padding: 0;
+  margin: 0;
+  border-collapse: collapse;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI';
+  font-size: 12px;
+  line-height: 1.5; }
+
+pre {
+  padding: 0;
+  margin: 0; }
+  pre code {
+    background-color: inherit;
+    display: block;
+    padding: 12px 12px;
+    font-size: 12px;
+    overflow: scroll;
+    max-height: 400px; }
+
+code {
+  background-color: #f2f2f2;
+  padding: 1px 4px;
+  border-radius: 2px; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+.container {
+  display: flex;
+  width: 940px;
+  margin: auto; }
+
+.nav {
+  width: 230px;
+  position: fixed; }
+  .nav ul {
+    margin: 0;
+    padding: 0; }
+  .nav li {
+    padding: 2px 12px;
+    font-family: monospace;
+    font-size: 14px;
+    list-style-type: none; }
+    .nav li:hover {
+      background-color: #f7f7f7; }
+    .nav li a {
+      color: inherit;
+      text-decoration: none; }
+
+.protocol {
+  min-width: 660px;
+  margin-left: 242px;
+  padding-right: 5px; }
+
+.proto-action {
+  margin: 20px 0;
+  width: 100%;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  overflow: hidden; }
+
+.proto-title {
+  padding: 4px 12px;
+  margin: 0;
+  background-color: #aaa;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500; }
+  .proto-title .proto-meta {
+    margin: 2px 0;
+    font-size: 10px; }
+    .proto-title .proto-meta .proto-meta-record {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      margin-right: 12px; }
+      .proto-title .proto-meta .proto-meta-record .proto-meta-record-key {
+        font-weight: 200; }
+      .proto-title .proto-meta .proto-meta-record .proto-meta-record-value {
+        font-weight: 600; }
+  .proto-title .proto-links {
+    float: right;
+    font-size: 16px; }
+    .proto-title .proto-links a {
+      color: inherit; }
+      .proto-title .proto-links a:hover {
+        text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2); }
+
+.private.proto-action {
+  border: 1px solid #c58285; }
+.private .proto-title {
+  background-color: #c58285; }
+
+.public.proto-action {
+  border: 1px solid #a3b788; }
+.public .proto-title {
+  background-color: #a3b788; }
+
+.proto-call-spec {
+  padding: 4px 12px;
+  font-size: 10px;
+  background-color: #eee; }
+  .proto-call-spec pre {
+    overflow: hidden; }
+
+.proto-description {
+  padding: 0 12px; }
+  .proto-description p + ul {
+    margin-top: -8px; }
+
+.proto-samples {
+  position: relative;
+  background-color: #eee; }
+  .proto-samples .proto-sample-select {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style-type: none; }
+    .proto-samples .proto-sample-select label {
+      display: inline-block;
+      text-align: center;
+      flex-grow: 1;
+      padding: 6px 12px;
+      background-color: #ccc;
+      cursor: pointer; }
+    .proto-samples .proto-sample-select input[type=radio]:checked + label {
+      background-color: #eee; }
+  .proto-samples .proto-sample {
+    display: none; }
+    .proto-samples .proto-sample.visible {
+      display: flex; }
+    .proto-samples .proto-sample .proto-sample-content {
+      width: 100%; }
+      .proto-samples .proto-sample .proto-sample-content .request {
+        width: 100%; }
+      .proto-samples .proto-sample .proto-sample-content .response {
+        background-color: #333;
+        color: #fff;
+        width: 100%;
+        overflow: scroll; }
+
+input[type=radio] {
+  display: none; }
+
+input[type=radio] + label {
+  font-weight: bold;
+  text-align: center;
+  display: block; }

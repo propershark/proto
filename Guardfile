@@ -5,6 +5,6 @@ guard :haml, input: 'src/views', output: 'docs', run_at_start: true do
   watch(/^.+(\.html\.haml)$/)
 end
 
-guard 'sass', input: 'src', output: 'docs' do
+guard 'sass', input: 'src', output: 'public' do
   watch(%r{^styles/(.+\.s[ac]ss)$})
 end

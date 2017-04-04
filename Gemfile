@@ -6,3 +6,7 @@ gem 'guard-sass'
 
 gem 'pandoc-ruby'
 gem 'rb-readline'
+
+gem 'sinatra'
+
+gem 'rerun'

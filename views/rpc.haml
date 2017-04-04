@@ -1,0 +1,48 @@
+%div{class: "proto-action #{rpc['meta']['accessibility']}"}
+  .proto-title{id: "#{rpc['id']}"}
+    .proto-links
+      - if rpc.dig('links', 'discussion')
+        %a{href: rpc['links']['discussion'], target: '_blank'}
+          = fa('comments-o').lg
+
+    %pre= rpc['name']
+    .proto-meta
+      - rpc['meta'].each do |key, value|
+        %span.proto-meta-record
+          %span.proto-meta-record-key>= key.gsub(/_/, ' ')
+          \:
+          %span.proto-meta-record-value= value.gsub(/_/, ' ')
+
+
+  .proto-call-spec
+    %pre
+      = rpc['spec']['call']
+      %br
+      = "-> #{rpc['spec']['return']}"
+
+
+  .proto-description
+    :markdown
+      #{rpc['description']}
+
+
+  .proto-samples
+    %ul.proto-sample-select
+      - is_first = true
+      - rpc['samples'].each do |name, _|
+        - rpc_id    = rpc_id_for(rpc)
+        - sample_id = sample_id_for(rpc, name)
+        %input{checked: is_first, 'data-content-target': "proto_sample_#{sample_id}", id: sample_id, name: rpc_id, type: "radio"}
+        %label{for: "#{sample_id}"}= name
+        - is_first = false
+
+    - rpc['samples'].each do |name, sample|
+      - sample_id = sample_id_for(rpc, name)
+      .proto-sample{id: "proto_sample_#{sample_id}"}
+        .proto-sample-content
+          .request
+            %pre
+              %code= html_escape(sample['call'])
+          .response
+            %pre
+              %code= html_escape(sample['return'])

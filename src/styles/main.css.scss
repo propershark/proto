@@ -1,6 +1,8 @@
 $private-color: #c58285;
 $public-color:  #a3b788;
 
+$nav-width: 230px;
+
 body {
   padding: 0;
   margin: 0;
@@ -44,10 +46,9 @@ a {
   margin: auto;
 }
 
-
 .nav {
-  min-width: 230px;
-  margin-right: 20px;
+  width: $nav-width;
+  position: fixed;
 
   ul {
     margin: 0;
@@ -55,13 +56,12 @@ a {
   }
 
   li {
-    padding: 2px 0;
+    padding: 2px 12px;
     font-family: monospace;
     font-size: 14px;
     list-style-type: none;
 
     &:hover   { background-color: #f7f7f7; }
-    &:before  { content: '.'; }
 
     a {
       color: inherit;
@@ -72,9 +72,8 @@ a {
 
 .protocol {
   min-width: 660px;
+  margin-left: $nav-width + 12px;
   padding-right: 5px;
-  height: 100vh;
-  overflow-y: scroll;
 }
 
 
