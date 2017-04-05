@@ -25,6 +25,36 @@ section.topic {
     .meta {
       font-size: $font-size-sm;
     }
+
+    .parameters {
+      width: 100%;
+      background-color: $offwhite-bg-color;
+      border-radius: 4px;
+
+      td, th {
+        text-align: left;
+        padding: $box-padding/2 $box-padding;
+        vertical-align: baseline;
+      }
+
+      thead {
+        border-bottom: 1px solid $highlight-color;
+      }
+
+      .name {
+        font-family: $font-family-mono;
+      }
+
+      .type {
+        color: $muted-color;
+
+        .optional {
+          font-weight: 300;
+          font-size: $font-size-sm;
+
+        }
+      }
+    }
   }
 
 

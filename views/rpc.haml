@@ -14,16 +14,33 @@
         %a{href: rpc['links']['discussion'], target: '_blank'}
           = fa('comments-o').lg
 
-    .call-spec
-      %pre
-        = rpc['spec']['call']
-        %br
-        = "-> #{rpc['spec']['return']}"
-
+    / .call-spec
+    /   %pre
+    /     = rpc['spec']['call']
+    /     %br
+    /     = "-> #{rpc['spec']['return']}"
 
     .description
       :markdown
         #{rpc['description']}
+
+    %table.parameters
+      %thead
+        %tr
+          %th Parameter
+          %th Type
+          %th Description
+
+      %tbody
+        - rpc['parameters'].each do |param|
+          %tr
+            %td.name= param['name']
+            %td.type
+              = param['type']
+              - unless param['required']
+                %br
+                %span.optional= '(optional)'
+            %td.description= param['description']
 
 
   .topic-samples

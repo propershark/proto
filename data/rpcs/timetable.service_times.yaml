@@ -15,6 +15,9 @@ description: |-
   If the result list contains no entries, an empty array will be returned.
 
 
+parameters: []
+
+
 samples:
   Default:
     call: |-
