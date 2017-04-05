@@ -1,0 +1,39 @@
+@import "_variables.scss";
+
+// Use border-box on everything by default
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// Global text settings
+body {
+  margin: 0;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  color: $text-color;
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+// Avoid underlining links by default
+a {
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+}
+
+
+// Give paragraphs slightly more head room
+p {
+  margin-top: 2em;
+}
+
+// Heading sizes
+h1 { font-size: $font-size-hd;      margin-top: 0px; }
+h2 { font-size: $font-size-hd*0.8;  margin-top: 0px; }
+h3 { font-size: $font-size-hd*0.6;  margin-top: 0px; }
+h4 { font-size: $font-size-hd*0.4;  margin-top: 0px; }

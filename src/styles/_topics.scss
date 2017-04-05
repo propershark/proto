@@ -1,0 +1,50 @@
+@import "_variables.scss";
+
+section.topic {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid $highlight-color;
+
+  &:first-child { border-top: none; }
+
+  .topic-description {
+    width: 45%;
+    padding: $box-padding*2 $box-padding;
+
+    code {
+      background-color: #f2f2f2;
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+
+    .title {
+      font-family: $font-family-mono;
+      font-size: $font-size-hd;
+    }
+
+    .meta {
+      font-size: $font-size-sm;
+    }
+  }
+
+
+  .topic-samples {
+    width: 55%;
+    padding: $box-padding*2 0;
+    background-color: $bg-color-dark;
+    color: $text-color-white;
+    overflow-x: scroll;
+
+    pre {
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+
+      code {
+        background-color: inherit;
+        display: block;
+        padding: $box-padding;
+      }
+    }
+  }
+}

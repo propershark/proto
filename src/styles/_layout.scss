@@ -1,0 +1,15 @@
+@import "_variables.scss";
+
+.container {
+  width: 100%;
+}
+
+.primary-nav {
+  position: fixed;
+  width: $nav-width;
+  padding: $box-padding 0;
+}
+
+.protocol {
+  margin-left: $nav-width;
+}

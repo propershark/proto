@@ -1,33 +1,33 @@
-%div{class: "proto-action #{rpc['meta']['accessibility']}"}
-  .proto-title{id: "#{rpc['id']}"}
-    .proto-links
+%section{class: "topic rpc #{rpc['meta']['accessibility']}", id: "#{rpc['id']}"}
+  .topic-description
+    .title= rpc['name']
+
+    .meta
+      - rpc['meta'].each do |key, value|
+        %span.meta-record
+          %span.meta-record-key>= key.gsub(/_/, ' ')
+          \:
+          %span.meta-record-value= value.gsub(/_/, ' ')
+
+    .links
       - if rpc.dig('links', 'discussion')
         %a{href: rpc['links']['discussion'], target: '_blank'}
           = fa('comments-o').lg
 
-    %pre= rpc['name']
-    .proto-meta
-      - rpc['meta'].each do |key, value|
-        %span.proto-meta-record
-          %span.proto-meta-record-key>= key.gsub(/_/, ' ')
-          \:
-          %span.proto-meta-record-value= value.gsub(/_/, ' ')
+    .call-spec
+      %pre
+        = rpc['spec']['call']
+        %br
+        = "-> #{rpc['spec']['return']}"
 
 
-  .proto-call-spec
-    %pre
-      = rpc['spec']['call']
-      %br
-      = "-> #{rpc['spec']['return']}"
+    .description
+      :markdown
+        #{rpc['description']}
 
 
-  .proto-description
-    :markdown
-      #{rpc['description']}
-
-
-  .proto-samples
-    %ul.proto-sample-select
+  .topic-samples
+    %ul.sample-select
       - is_first = true
       - rpc['samples'].each do |name, _|
         - rpc_id    = rpc_id_for(rpc)
@@ -38,8 +38,8 @@
 
     - rpc['samples'].each do |name, sample|
       - sample_id = sample_id_for(rpc, name)
-      .proto-sample{id: "proto_sample_#{sample_id}"}
-        .proto-sample-content
+      .sample{id: "proto_sample_#{sample_id}"}
+        .sample-content
           .request
             %pre
               %code= html_escape(sample['call'])

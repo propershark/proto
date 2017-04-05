@@ -1,0 +1,29 @@
+@import "_variables.scss";
+
+nav.primary-nav {
+  background-color: $bg-color;
+  height: 100vh;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    padding: $text-padding-v $box-padding;
+    font-family: monospace;
+    font-size: $font-size;
+    list-style-type: none;
+
+    &:hover { background-color: $highlight-color; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  .padded {
+    padding: 0 $box-padding;
+  }
+}
