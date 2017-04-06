@@ -37,3 +37,10 @@ h1 { font-size: $font-size-hd;      margin-top: 0px; }
 h2 { font-size: $font-size-hd*0.8;  margin-top: 0px; }
 h3 { font-size: $font-size-hd*0.6;  margin-top: 0px; }
 h4 { font-size: $font-size-hd*0.4;  margin-top: 0px; }
+
+
+// Use the defined monospace family for code blocks, etc.
+pre,
+code {
+  font-family: $font-family-mono;
+}

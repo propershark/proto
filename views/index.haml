@@ -9,7 +9,7 @@
   %body
     .container
       %nav.primary-nav
-        %h3.padded Protocol
+        %h1.padded= haml :_branding
         %ul
           - @rpcs.each do |rpc|
             %li
