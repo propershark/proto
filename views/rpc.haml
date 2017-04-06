@@ -13,12 +13,6 @@
           %a{href: rpc['links']['discussion'], target: '_blank'}
             = fa('comments-o').lg
 
-    / .call-spec
-    /   %pre
-    /     = rpc['spec']['call']
-    /     %br
-    /     = "-> #{rpc['spec']['return']}"
-
     .description
       :markdown
         #{rpc['description']}
@@ -43,18 +37,26 @@
 
 
   .topic-samples
+    .sample.callspec
+      .sample-content
+        .request
+          %pre
+            = rpc['spec']['call']
+            %br
+            = "-> #{rpc['spec']['return']}"
+
     %ul.sample-select
       - is_first = true
       - rpc['samples'].each do |name, _|
         - rpc_id    = rpc_id_for(rpc)
         - sample_id = sample_id_for(rpc, name)
-        %input{checked: is_first, 'data-content-target': "proto_sample_#{sample_id}", id: sample_id, name: rpc_id, type: "radio"}
+        %input{checked: is_first, 'data-content-target': "sample_#{sample_id}", id: sample_id, name: rpc_id, type: "radio"}
         %label{for: "#{sample_id}"}= name
         - is_first = false
 
     - rpc['samples'].each do |name, sample|
       - sample_id = sample_id_for(rpc, name)
-      .sample{id: "proto_sample_#{sample_id}"}
+      .sample{id: "sample_#{sample_id}"}
         .sample-content
           .request
             :markdown

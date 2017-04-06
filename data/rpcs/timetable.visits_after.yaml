@@ -1,8 +1,8 @@
 name: Timetable.visits_after
 id: timetable_visits_after
 spec:
-  call: 'timetable.visits_after(station : String, start : DateTime, route : String?, limit : Int)'
-  return: '[(eta, etd, route_short_name, headsign)...]'
+  call: 'timetable.visits_after(station, start, route?, limit)'
+  return: '[(eta, etd, route_short_name, headsign), ...]'
 meta:
   since: v0.1
   accessibility: public

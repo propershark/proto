@@ -1,8 +1,8 @@
 name: Timetable.visits_between
 id: timetable_visits_between
 spec:
-  call: 'timetable.visits_between(station : String, start : DateTime, end : DateTime, route : String?, limit : Int)'
-  return: '[(eta, etd, route_short_name, headsign)...]'
+  call: 'timetable.visits_between(station, start, end, route?, limit)'
+  return: '[(eta, etd, route, headsign), ...]'
 meta:
   since: v0.1
   accessibility: public
@@ -21,7 +21,27 @@ description: |-
   If the result list contains no entries, an empty array will be returned.
 
 
-parameters: []
+parameters:
+  - name: station
+    type: String
+    required: true
+    description: The identifier of a station of arrival for visits.
+  - name: start
+    type: DateTime
+    required: true
+    description: The earliest time that a visit should be considered for inclusion.
+  - name: end
+    type: DateTime
+    required: true
+    description: The latest time that a visit should be considered for inclusion.
+  - name: route
+    type: String
+    required: false
+    description: The identifier of a route to filter visits by.
+  - name: limit
+    type: Integer
+    required: true
+    description: The maximum number of visits to return.
 
 
 samples:

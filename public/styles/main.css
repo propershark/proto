@@ -96,6 +96,8 @@ section.topic {
             content: ':'; }
         section.topic .topic-description .metabar .meta-element .value {
           font-weight: bold; }
+    section.topic .topic-description .callspec {
+      font-size: 11.2px; }
     section.topic .topic-description .parameters {
       width: 100%;
       background-color: #f6f8f9;
