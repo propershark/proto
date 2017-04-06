@@ -1,7 +1,26 @@
-$private-color:     #c58285;
-$public-color:      #a3b788;
+// Colors
+$default:       #fff;
+$gray:          #556f77;
+$dark-gray:     darken($gray, 10%);
+$darker-gray:   darken($gray, 20%);
+$darkest-gray:  darken($gray, 25%);
+$light-gray:    lighten($gray, 10%);
+$lighter-gray:  lighten($gray, 20%);
+$lightest-gray: lighten($gray, 25%);
 
-$nav-width:         240px;
+$white:         lighten($gray, 59%);
+$offwhite:      darken($white, 2%);
+
+$yellow:        #b58900;
+$orange:        #cb4b16;
+$red:           #dc322f;
+$magenta:       #d33682;
+$violet:        #6c71c4;
+$blue:          #268bd2;
+$cyan:          #2aa198;
+$green:         #859900;
+
+
 
 $box-padding:       20px;
 $text-padding-h:    12px;
@@ -16,11 +35,19 @@ $font-size-hd:      $font-size*1.8;
 $line-height:       1.8;
 
 
-$text-color:        #333;
-$muted-color:       #aaa;
-$text-color-white:  #f7f7f7;
+// Text colors
+$text-color:        $darker-gray;
+$muted-color:       $lighter-gray;
+$text-color-white:  $lightest-gray;
 
-$bg-color:          #ffffff;
-$bg-color-dark:     #171d1f;
-$highlight-color:   #e7e7e7;
-$offwhite-bg-color: #f7f7f7;
+// Backgrounds
+$bg-color:                $white;
+$bg-color-dark:           $darkest-gray;
+$highlight-color:         $offwhite;
+$highlight-border:        1px solid darken($offwhite, 5%);
+$dark-border:             1px solid $dark-gray;
+
+// Navigation
+$nav-width:         240px;
+$nav-bg-color:      $highlight-color;
+$nav-hover-color:   darken($nav-bg-color, 5%)

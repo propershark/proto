@@ -3,19 +3,19 @@
 section.topic {
   display: flex;
   width: 100%;
-  border-top: 1px solid $highlight-color;
 
   &:first-child { border-top: none; }
 
   .topic-description {
     width: 45%;
     padding: $box-padding*2 $box-padding;
+    border-top: $highlight-border;
 
     code {
-      background-color: #f2f2f2;
+      background-color: $offwhite;
       padding: 1px 4px;
       border-radius: 2px;
-      font-size: $font-size*0.8;
+      font-size: $font-size-sm;
     }
 
     .title {
@@ -29,7 +29,7 @@ section.topic {
 
     .parameters {
       width: 100%;
-      background-color: $offwhite-bg-color;
+      background-color: $highlight-color;
       border-radius: 4px;
 
       td, th {
@@ -39,7 +39,7 @@ section.topic {
       }
 
       thead {
-        border-bottom: 1px solid $highlight-color;
+        border-bottom: $highlight-border;
       }
 
       .name {
@@ -52,7 +52,6 @@ section.topic {
         .optional {
           font-weight: 300;
           font-size: $font-size-sm;
-
         }
       }
     }
@@ -61,20 +60,21 @@ section.topic {
 
   .topic-samples {
     width: 55%;
-    padding: $box-padding*2 0;
+    padding: $box-padding*2 $box-padding;
     background-color: $bg-color-dark;
-    color: $text-color-white;
+    color: $lightest-gray;
     overflow-x: scroll;
+    border-top: $dark-border;
 
     pre {
       padding: 0;
       margin: 0;
       display: inline-block;
+      white-space: pre-wrap;
 
       code {
         background-color: inherit;
         display: block;
-        padding: $box-padding;
       }
     }
   }

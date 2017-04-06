@@ -50,59 +50,59 @@ samples:
     call: |-
       timetable.service_times('BUS123', '1B')
     return: |-
-      // Array of service records.
-      // This array will always contain 7 entries, each one representing a day of the
-      // week. The first entry will always correspond to the current date according
-      // to the RPC provider.
-      // In this example, the first entry is a Saturday. The final entry would be the
-      // following Friday.
+      # Array of service records.
+      # This array will always contain 7 entries, each one representing a day of the
+      # week. The first entry will always correspond to the current date according
+      # to the RPC provider.
+      # In this example, the first entry is a Saturday. The final entry would be the
+      # following Friday.
       [
-        // Service record
+        # Service record
         (
-          // Date of service entry
-          20170325, // = Saturday
-          // Array of visit intervals
+          # Date of service entry
+          20170325, #=> Saturday
+          # Array of visit intervals
           [
-            // Interval record
+            # Interval record
             (
-              // time range of visit interval
+              # time range of visit interval
               (06:45:00, 07:50:00),
-              // visit interval
+              # visit interval
               00:00:10
             ),
-            // mid-day changes to a service's visit interval are represented as
-            // separate elements in the intervals array.
-            ((08:00:00, 16:55:00), 00:00:05), // = 8am- 4:55pm, every  5 minutes
-            ((17:00:00, 22:50:00), 00:00:10)  // = 5pm-10:50pm, every 10 minutes
+            # mid-day changes to a service's visit interval are represented as
+            # separate elements in the intervals array.
+            ((08:00:00, 16:55:00), 00:00:05), #=> 8am- 4:55pm, every  5 minutes
+            ((17:00:00, 22:50:00), 00:00:10)  #=> 5pm-10:50pm, every 10 minutes
           ]
         ),
 
-        // Dates with only one interval record will still contain that record in an
-        // array to maintain consistency.
+        # Dates with only one interval record will still contain that record in an
+        # array to maintain consistency.
         (
-          20170326, // = Sunday
+          20170326, #=> Sunday
           [
-            ((00:00:00, 03:00:00), 00:00:30),  // = 5pm-10:50pm, every 10 minutes
+            ((00:00:00, 03:00:00), 00:00:30),  #=> 5pm-10:50pm, every 10 minutes
             ((09:00:00, 22:00:00), 00:00:30),
-            // Intervals that wrap the midnight boundary represent the end of their
-            // time range as a duration since the most recent midnight. This *should*
-            // never be later than the start of the time range.
-            ((22:00:00, 03:00:00), 00:00:30)  // = 5pm-10:50pm, every 10 minutes
+            # Intervals that wrap the midnight boundary represent the end of their
+            # time range as a duration since the most recent midnight. This *should*
+            # never be later than the start of the time range.
+            ((22:00:00, 03:00:00), 00:00:30)  #=> 5pm-10:50pm, every 10 minutes
           ]
         ),
 
-        // For consistency, dates on which no service is provided will contain a blank
-        // array value.
+        # For consistency, dates on which no service is provided will contain a blank
+        # array value.
         (
-          20170327, // = Monday
+          20170327, #=> Monday
           []
         ),
 
-        // Even if multiple dates contain the same interval records, they will be
-        // listed as distinct service records. It is the client's responsibility to
-        // group these records by date if desired.
+        # Even if multiple dates contain the same interval records, they will be
+        # listed as distinct service records. It is the client's responsibility to
+        # group these records by date if desired.
         (
-          20170328, // = Tuesday
+          20170328, #=> Tuesday
           [
             ((06:45:00, 07:50:00), 00:00:10),
             ((08:00:00, 16:55:00), 00:00:05),

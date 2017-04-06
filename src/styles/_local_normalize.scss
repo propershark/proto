@@ -22,6 +22,7 @@ body {
 // Avoid underlining links by default
 a {
   text-decoration: none;
+  color: $blue;
 
   &:hover { text-decoration: underline; }
 }

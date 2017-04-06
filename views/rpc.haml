@@ -58,8 +58,12 @@
       .sample{id: "proto_sample_#{sample_id}"}
         .sample-content
           .request
-            %pre
-              %code= html_escape(sample['call'])
+            :markdown
+              ```ruby
+              #{sample['call']}
+              ```
           .response
-            %pre
-              %code= html_escape(sample['return'])
+            :markdown
+              ```ruby
+              #{sample['return']}
+              ```

@@ -1,7 +1,7 @@
 @import "_variables.scss";
 
 nav.primary-nav {
-  background-color: $offwhite-bg-color;
+  background-color: $nav-bg-color;
   height: 100vh;
 
   ul {
@@ -15,7 +15,7 @@ nav.primary-nav {
     font-size: $font-size;
     list-style-type: none;
 
-    &:hover { background-color: $highlight-color; }
+    &:hover { background-color: $nav-hover-color; }
 
     a {
       color: inherit;
