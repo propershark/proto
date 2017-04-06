@@ -20,21 +20,6 @@ $blue:          #268bd2;
 $cyan:          #2aa198;
 $green:         #859900;
 
-
-
-$box-padding:       20px;
-$text-padding-h:    12px;
-$text-padding-v:    4px;
-
-$font-family:       'Museo Sans Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI';
-$font-family-mono:  'Roboto Mono', monospace;
-$font-size:         14px;
-$font-size-sm:      $font-size*0.8;
-$font-size-lg:      $font-size*1.4;
-$font-size-hd:      $font-size*1.8;
-$line-height:       1.8;
-
-
 // Text colors
 $text-color:        $darker-gray;
 $muted-color:       $lighter-gray;
@@ -44,10 +29,32 @@ $text-color-white:  $lightest-gray;
 $bg-color:                $white;
 $bg-color-dark:           $darkest-gray;
 $highlight-color:         $offwhite;
+
+
+// Borders
 $highlight-border:        1px solid darken($offwhite, 5%);
 $dark-border:             1px solid $dark-gray;
+$border-radius:           4px;
+$border-radius-sm:        2px;
+
+
+// Spacing
+$box-padding:       20px;
+$text-padding-h:    12px;
+$text-padding-v:    4px;
+
+
+// Fonts and sizes
+$font-family:       'Museo Sans Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI';
+$font-family-mono:  'Roboto Mono', monospace;
+$font-size:         14px;
+$font-size-sm:      $font-size*0.8;
+$font-size-lg:      $font-size*1.4;
+$font-size-hd:      $font-size*1.8;
+$line-height:       1.8;
+
 
 // Navigation
 $nav-width:         240px;
 $nav-bg-color:      $highlight-color;
-$nav-hover-color:   darken($nav-bg-color, 5%)
+$nav-hover-color:   darken($nav-bg-color, 5%);

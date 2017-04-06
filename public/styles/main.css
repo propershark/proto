@@ -75,8 +75,27 @@ section.topic {
     section.topic .topic-description .title {
       font-family: "Roboto Mono", monospace;
       font-size: 25.2px; }
-    section.topic .topic-description .meta {
-      font-size: 11.2px; }
+    section.topic .topic-description .metabar {
+      background-color: #f6f8f9;
+      font-size: 11.2px;
+      border-radius: 4px;
+      display: flex; }
+      section.topic .topic-description .metabar .meta-element {
+        border-right: 1px solid #e7ecee;
+        flex: 1 0 auto;
+        text-align: center;
+        padding: 4px 12px; }
+        section.topic .topic-description .metabar .meta-element:last-child {
+          border: none; }
+        section.topic .topic-description .metabar .meta-element.link {
+          flex: 0 0 40px; }
+        section.topic .topic-description .metabar .meta-element .key {
+          color: #88a2aa;
+          margin-right: 4px; }
+          section.topic .topic-description .metabar .meta-element .key:after {
+            content: ':'; }
+        section.topic .topic-description .metabar .meta-element .value {
+          font-weight: bold; }
     section.topic .topic-description .parameters {
       width: 100%;
       background-color: #f6f8f9;

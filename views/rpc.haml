@@ -2,17 +2,16 @@
   .topic-description
     .title= rpc['name']
 
-    .meta
+    .metabar
       - rpc['meta'].each do |key, value|
-        %span.meta-record
-          %span.meta-record-key>= key.gsub(/_/, ' ')
-          \:
-          %span.meta-record-value= value.gsub(/_/, ' ')
+        .meta-element
+          %span.key= key.gsub(/_/, ' ')
+          %span.value= value.gsub(/_/, ' ')
 
-    .links
       - if rpc.dig('links', 'discussion')
-        %a{href: rpc['links']['discussion'], target: '_blank'}
-          = fa('comments-o').lg
+        .meta-element.link
+          %a{href: rpc['links']['discussion'], target: '_blank'}
+            = fa('comments-o').lg
 
     / .call-spec
     /   %pre
