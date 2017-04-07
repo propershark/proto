@@ -52,11 +52,10 @@ span.branding .branding-docs {
 
 .primary-nav {
   position: fixed;
-  width: 240px;
-  padding: 20px 0; }
+  width: 240px; }
 
 .protocol {
-  margin-left: 240px; }
+  padding-top: 48px; }
 
 section.topic {
   display: flex;
@@ -65,7 +64,7 @@ section.topic {
     border-top: none; }
   section.topic .topic-description {
     width: 45%;
-    padding: 40px 20px;
+    padding: 20px 20px 40px 20px;
     border-top: 1px solid #e7ecee; }
     section.topic .topic-description code {
       background-color: #f6f8f9;
@@ -133,12 +132,53 @@ section.topic {
 
 nav.primary-nav {
   background-color: #f6f8f9;
-  height: 100vh; }
-  nav.primary-nav ul {
-    margin: 0;
-    padding: 0; }
+  height: 48px;
+  width: 100%;
+  padding: 8px 16px;
+  border-bottom: 1px solid #e7ecee;
+  line-height: 1; }
+  nav.primary-nav .title {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 4px;
+    margin-right: 32px; }
+  nav.primary-nav .topic-select {
+    display: inline-block;
+    position: absolute;
+    width: 14em;
+    height: 32px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #e7ecee;
+    font-size: 16px; }
+    nav.primary-nav .topic-select:focus {
+      border: 1px solid #e7ecee;
+      border-radius: 4px; }
+    nav.primary-nav .topic-select .proxy {
+      position: absolute;
+      width: 100%; }
+      nav.primary-nav .topic-select .proxy:after {
+        position: absolute;
+        right: 16px;
+        font-family: FontAwesome;
+        margin-top: 1px;
+        color: #405359;
+        content: '\f0d7'; }
+    nav.primary-nav .topic-select select {
+      width: 100%;
+      height: 32px;
+      margin-top: -8px;
+      margin-left: -8px;
+      width: 14em;
+      background-color: inherit;
+      border: none;
+      opacity: 0; }
+      nav.primary-nav .topic-select select:focus {
+        outline: none; }
   nav.primary-nav li {
-    padding: 4px 20px;
+    display: inline-block;
+    padding: 10px 20px;
     font-family: "Roboto Mono", monospace;
     font-size: 14px;
     list-style-type: none; }

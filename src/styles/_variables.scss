@@ -32,7 +32,8 @@ $highlight-color:         $offwhite;
 
 
 // Borders
-$highlight-border:        1px solid darken($offwhite, 5%);
+$highlight-border-color:  darken($offwhite, 5%);
+$highlight-border:        1px solid $highlight-border-color;
 $dark-border:             1px solid $dark-gray;
 $border-radius:           4px;
 $border-radius-sm:        2px;
@@ -49,7 +50,7 @@ $font-family:       'Museo Sans Rounded', -apple-system, BlinkMacSystemFont, 'Se
 $font-family-mono:  'Roboto Mono', monospace;
 $font-size:         14px;
 $font-size-sm:      $font-size*0.8;
-$font-size-lg:      $font-size*1.4;
+$font-size-lg:      $font-size*1.2;
 $font-size-hd:      $font-size*1.8;
 $line-height:       1.8;
 
@@ -58,3 +59,5 @@ $line-height:       1.8;
 $nav-width:         240px;
 $nav-bg-color:      $highlight-color;
 $nav-hover-color:   darken($nav-bg-color, 5%);
+$nav-border-color:  $highlight-border-color;
+$nav-border:        1px solid $nav-border-color;

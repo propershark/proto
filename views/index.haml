@@ -9,12 +9,13 @@
   %body
     .container
       %nav.primary-nav
-        %h1.padded= haml :_branding
-        %ul
-          - @rpcs.each do |rpc|
-            %li
-              %a{href: "##{rpc['id']}"}
-                = rpc['name']
+        .title= haml :_branding
+        .topic-select
+          %span.proxy= @rpcs.first['name']
+          %select
+            %optgroup(label="Timetable")
+              - @rpcs.each do |rpc|
+                %option{value: "#{rpc['name']}", 'data-topic': "#{rpc['id']}"}= rpc['name']
 
 
       .protocol
@@ -29,7 +30,12 @@
       $(this).find('.proto-sample').first().toggleClass("visible");
     });
 
-    $('input[type=radio]').change(function() {
+    $('input[type=radio]').on('change', function() {
       $(this).closest('.proto-action').find(".proto-sample.visible").toggleClass("visible", false);
       $('[id="'+$(this).data('content-target')+'"]').toggleClass("visible", $(this).checked);
+    });
+
+    $('.topic-select select').on('change', function() {
+      $('.topic-select .proxy').text($(this).val());
+      window.location.href = '#' + $(this).find('option:selected').data('topic');
     });

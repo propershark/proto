@@ -8,7 +8,7 @@ section.topic {
 
   .topic-description {
     width: 45%;
-    padding: $box-padding*2 $box-padding;
+    padding: $box-padding $box-padding $box-padding*2 $box-padding;
     border-top: $highlight-border;
 
     code {
