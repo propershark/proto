@@ -1,4 +1,4 @@
-name: Timetable.visits_between
+name: timetable.visits_between
 id: timetable_visits_between
 spec:
   call: 'timetable.visits_between(station, start, end, route?, limit)'

@@ -1,4 +1,4 @@
-name: Timetable.visits_after
+name: timetable.visits_after
 id: timetable_visits_after
 spec:
   call: 'timetable.visits_after(station, start, route?, limit)'

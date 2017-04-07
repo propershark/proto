@@ -1,4 +1,4 @@
-name: Timetable.visits_before
+name: timetable.visits_before
 id: timetable_visits_before
 spec:
   call: 'timetable.visits_before(station, end, route?, limit)'
