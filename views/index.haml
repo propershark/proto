@@ -11,7 +11,7 @@
       %nav.primary-nav
         .title= haml :_branding
         .topic-select
-          %span.proxy= @rpcs.first['name']
+          %span.proxy
           %select
             %optgroup(label="Timetable")
               - @rpcs.each do |rpc|
@@ -34,6 +34,11 @@
       $(this).closest('.proto-action').find(".proto-sample.visible").toggleClass("visible", false);
       $('[id="'+$(this).data('content-target')+'"]').toggleClass("visible", $(this).checked);
     });
+
+    var hash_selected_topic = window.location.hash.substr(1);
+    var default_topic_select_option = $('.topic-select select option[data-topic="'+hash_selected_topic+'"]').val() || $('.topic-select select option:first').val();
+
+    $('.topic-select .proxy').text(default_topic_select_option);
 
     $('.topic-select select').on('change', function() {
       $('.topic-select .proxy').text($(this).val());
