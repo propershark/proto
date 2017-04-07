@@ -2,29 +2,27 @@
 
 nav.primary-nav {
   background-color: $nav-bg-color;
-  height: 49px;
+  height: $nav-height;
   width: 100%;
   border-bottom: $nav-border;
   line-height: 1;
 
   .title {
     display: inline-block;
-    font-size: 24px;
+    font-size: $font-size-hd;
     font-weight: 700;
-    padding: 12px 16px;
-    // margin-right: 16px;
+    padding: $u1 $u2;
+    margin-top: $half-u;
   }
 
-  $nav-typeahead-width: 16em;
-  $nav-height: 48px;
 
   .topic-select {
     display: inline-block;
     position: absolute;
     width: $nav-typeahead-width;
     height: $nav-height;
-    padding: 8px 16px;
-    font-size: 16px;
+    padding: $u1 $u2;
+    font-size: $font-size-lg;
     border-left: $nav-border;
     border-right: $nav-border;
 
@@ -32,16 +30,14 @@ nav.primary-nav {
       background-color: $nav-hover-color;
     }
 
-
     .proxy {
       position: absolute;
-      margin-top: 10px;
+      margin-top: $u1+2px;
       width: 100%;
-
 
       &:after {
         position: absolute;
-        right: 32px;
+        right: $u4;
         font-family: FontAwesome;
         color: $dark-gray;
         content: '\f0d7';
@@ -51,8 +47,8 @@ nav.primary-nav {
     select {
       width: 100%;
       height: $nav-height;
-      margin-top: -8px;
-      margin-left: -8px;
+      margin-top: -$u1;
+      margin-left: -$u2;
       width: $nav-typeahead-width;
       background-color: inherit;
       border: none;
@@ -61,9 +57,5 @@ nav.primary-nav {
 
       &:focus { outline: none; }
     }
-  }
-
-  .padded {
-    padding: 0 $box-padding;
   }
 }

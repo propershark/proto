@@ -6,14 +6,13 @@
 
 .primary-nav {
   position: fixed;
-  width: $nav-width;
 }
 
 .protocol {
-  padding-top: 48px;
+  padding-top: $nav-height;
 }
 
 a.jump-anchor {
   position: relative;
-  top: -46px;
+  top: -$nav-height+1px;
 }

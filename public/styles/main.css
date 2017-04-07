@@ -23,19 +23,19 @@ p {
   margin-top: 2em; }
 
 h1 {
-  font-size: 25.2px;
+  font-size: 24px;
   margin-top: 0px; }
 
 h2 {
-  font-size: 20.16px;
+  font-size: 19.2px;
   margin-top: 0px; }
 
 h3 {
-  font-size: 15.12px;
+  font-size: 14.4px;
   margin-top: 0px; }
 
 h4 {
-  font-size: 10.08px;
+  font-size: 9.6px;
   margin-top: 0px; }
 
 pre,
@@ -45,21 +45,21 @@ code {
 span.branding .branding-tld {
   color: #97aeb5; }
 span.branding .branding-docs {
-  margin-left: 0.3em; }
+  color: #268bd2;
+  margin-left: 0.4em; }
 
 .container {
   width: 100%; }
 
 .primary-nav {
-  position: fixed;
-  width: 240px; }
+  position: fixed; }
 
 .protocol {
-  padding-top: 48px; }
+  padding-top: 49px; }
 
 a.jump-anchor {
   position: relative;
-  top: -46px; }
+  top: -48px; }
 
 section.topic {
   display: flex;
@@ -67,27 +67,28 @@ section.topic {
   section.topic:first-child {
     border-top: none; }
   section.topic .topic-description {
-    width: 45%;
-    padding: 20px 40px 40px 20px;
+    width: 55%;
+    padding: 16px 32px 32px 16px;
     border-top: 1px solid #e7ecee; }
     section.topic .topic-description code {
       background-color: #f6f8f9;
       padding: 1px 4px;
       border-radius: 2px;
-      font-size: 11.2px; }
+      font-size: 11px; }
     section.topic .topic-description .title {
       font-family: "Roboto Mono", monospace;
-      font-size: 25.2px; }
+      font-size: 24px; }
     section.topic .topic-description .metabar {
+      margin: 16px 0;
       background-color: #f6f8f9;
-      font-size: 11.2px;
+      font-size: 11px;
       border-radius: 4px;
       display: flex; }
       section.topic .topic-description .metabar .meta-element {
         border-right: 1px solid #e7ecee;
         flex: 1 0 auto;
         text-align: center;
-        padding: 4px 12px; }
+        padding: 4px 8px; }
         section.topic .topic-description .metabar .meta-element:last-child {
           border: none; }
         section.topic .topic-description .metabar .meta-element.link {
@@ -100,14 +101,14 @@ section.topic {
         section.topic .topic-description .metabar .meta-element .value {
           font-weight: bold; }
     section.topic .topic-description .callspec {
-      font-size: 11.2px; }
+      font-size: 11px; }
     section.topic .topic-description .parameters {
       width: 100%;
       background-color: #f6f8f9;
       border-radius: 4px; }
       section.topic .topic-description .parameters td, section.topic .topic-description .parameters th {
         text-align: left;
-        padding: 10px 20px;
+        padding: 8px 16px;
         vertical-align: baseline; }
       section.topic .topic-description .parameters thead {
         border-bottom: 1px solid #e7ecee; }
@@ -117,10 +118,12 @@ section.topic {
         color: #88a2aa; }
         section.topic .topic-description .parameters .type .optional {
           font-weight: 300;
-          font-size: 11.2px; }
+          font-size: 11px; }
   section.topic .topic-samples {
-    width: 55%;
-    padding: 40px 20px 40px 40px;
+    flex: 1 0 80ch;
+    font-family: "Roboto Mono", monospace;
+    box-sizing: content-box;
+    padding: 16px 16px 32px 32px;
     background-color: #202a2d;
     color: #97aeb5;
     overflow-x: scroll;
@@ -144,12 +147,13 @@ nav.primary-nav {
     display: inline-block;
     font-size: 24px;
     font-weight: 700;
-    padding: 12px 16px; }
+    padding: 8px 16px;
+    margin-top: 4px; }
   nav.primary-nav .topic-select {
     display: inline-block;
     position: absolute;
     width: 16em;
-    height: 48px;
+    height: 49px;
     padding: 8px 16px;
     font-size: 16px;
     border-left: 1px solid #e7ecee;
@@ -168,9 +172,9 @@ nav.primary-nav {
         content: '\f0d7'; }
     nav.primary-nav .topic-select select {
       width: 100%;
-      height: 48px;
+      height: 49px;
       margin-top: -8px;
-      margin-left: -8px;
+      margin-left: -16px;
       width: 16em;
       background-color: inherit;
       border: none;
@@ -178,8 +182,6 @@ nav.primary-nav {
       opacity: 0; }
       nav.primary-nav .topic-select select:focus {
         outline: none; }
-  nav.primary-nav .padded {
-    padding: 0 20px; }
 
 pre.highlight {
   color: #97aeb5;

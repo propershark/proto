@@ -7,8 +7,8 @@ section.topic {
   &:first-child { border-top: none; }
 
   .topic-description {
-    width: 45%;
-    padding: $box-padding $box-padding*2 $box-padding*2 $box-padding;
+    width: 55%;
+    padding: $u2 $u4 $u4 $u2;
     border-top: $highlight-border;
 
     code {
@@ -24,6 +24,7 @@ section.topic {
     }
 
     .metabar {
+      margin: $u2 0;
       background-color: $highlight-color;
       font-size: $font-size-sm;
       border-radius: $border-radius;
@@ -43,7 +44,7 @@ section.topic {
 
         .key {
           color: $muted-color;
-          margin-right: 4px;
+          margin-right: $half-u;
 
           &:after { content: ':'; }
         }
@@ -92,10 +93,12 @@ section.topic {
     }
   }
 
-
+  $sample-width: 80ch;
   .topic-samples {
-    width: 55%;
-    padding: $box-padding*2 $box-padding $box-padding*2 $box-padding*2;
+    flex: 1 0 $sample-width;
+    font-family: $font-family-mono;
+    box-sizing: content-box;
+    padding: $u2 $u2 $u4 $u4;
     background-color: $bg-color-dark;
     color: $lightest-gray;
     overflow-x: scroll;
