@@ -24,7 +24,7 @@ section.topic {
     }
 
     .metabar {
-      margin: $u2 0;
+      margin: $u1 0 $u2 0;
       background-color: $highlight-color;
       font-size: $font-size-sm;
       border-radius: $border-radius;
@@ -55,12 +55,7 @@ section.topic {
       }
     }
 
-    .callspec {
-      font-size: $font-size-sm;
-    }
-
     .description {
-
     }
 
     .parameters {
@@ -93,16 +88,21 @@ section.topic {
     }
   }
 
-  $sample-width: 80ch;
+  $sample-width: 81ch;
   .topic-samples {
     flex: 1 0 $sample-width;
     font-family: $font-family-mono;
     box-sizing: content-box;
     padding: $u2 $u2 $u4 $u4;
+    padding-top: $u8;
     background-color: $bg-color-dark;
     color: $lightest-gray;
     overflow-x: scroll;
     border-top: $dark-border;
+
+    .sample {
+      margin-top: $u1;
+    }
 
     pre {
       padding: 0;

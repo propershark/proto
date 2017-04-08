@@ -20,7 +20,7 @@ a {
     text-decoration: underline; }
 
 p {
-  margin-top: 2em; }
+  margin-bottom: 2em; }
 
 h1 {
   font-size: 24px;
@@ -79,7 +79,7 @@ section.topic {
       font-family: "Roboto Mono", monospace;
       font-size: 24px; }
     section.topic .topic-description .metabar {
-      margin: 16px 0;
+      margin: 8px 0 16px 0;
       background-color: #f6f8f9;
       font-size: 11px;
       border-radius: 4px;
@@ -100,8 +100,6 @@ section.topic {
             content: ':'; }
         section.topic .topic-description .metabar .meta-element .value {
           font-weight: bold; }
-    section.topic .topic-description .callspec {
-      font-size: 11px; }
     section.topic .topic-description .parameters {
       width: 100%;
       background-color: #f6f8f9;
@@ -120,14 +118,17 @@ section.topic {
           font-weight: 300;
           font-size: 11px; }
   section.topic .topic-samples {
-    flex: 1 0 80ch;
+    flex: 1 0 81ch;
     font-family: "Roboto Mono", monospace;
     box-sizing: content-box;
     padding: 16px 16px 32px 32px;
+    padding-top: 64px;
     background-color: #202a2d;
     color: #97aeb5;
     overflow-x: scroll;
     border-top: 1px solid #405359; }
+    section.topic .topic-samples .sample {
+      margin-top: 8px; }
     section.topic .topic-samples pre {
       padding: 0;
       margin: 0;

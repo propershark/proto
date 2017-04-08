@@ -38,34 +38,8 @@
 
 
   .topic-samples
-    .sample.callspec
-      .sample-content
-        .request
-          %pre
-            = rpc['spec']['call']
-            %br
-            = "-> #{rpc['spec']['return']}"
-
-    %ul.sample-select
-      - is_first = true
-      - rpc['samples'].each do |name, _|
-        - rpc_id    = rpc_id_for(rpc)
-        - sample_id = sample_id_for(rpc, name)
-        %input{checked: is_first, 'data-content-target': "sample_#{sample_id}", id: sample_id, name: rpc_id, type: "radio"}
-        %label{for: "#{sample_id}"}= name
-        - is_first = false
-
-    - rpc['samples'].each do |name, sample|
-      - sample_id = sample_id_for(rpc, name)
-      .sample{id: "sample_#{sample_id}"}
-        .sample-content
-          .request
-            :markdown
-              ```ruby
-              #{sample['call']}
-              ```
-          .response
-            :markdown
-              ```ruby
-              #{sample['return']}
-              ```
+    .sample.content
+      :markdown
+        ```ruby
+        #{rpc['samples']}
+        ```
