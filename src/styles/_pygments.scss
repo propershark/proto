@@ -16,26 +16,26 @@ pre.highlight {
   .err  { color: $red; } /* Error */
   .k    { color: $violet; font-weight: bold } /* Keyword */
   .gd   { color: $darkest-gray; background-color: $gray; } /* Generic.Deleted */
-  .ge   { font-style: italic } /* Generic.Emph */
+  .ge   { font-style: italic; } /* Generic.Emph */
   .gr   { color: $red; } /* Generic.Error */
   .gh   { color: $light-gray; } /* Generic.Heading */
   .gi   { color: $darkest-gray; background-color: $gray; } /* Generic.Inserted */
   .go   { color: $gray; } /* Generic.Output */
   .gp   { color: $dark-gray; } /* Generic.Prompt */
-  .gs   { font-weight: bold } /* Generic.Strong */
+  .gs   { font-weight: bold; } /* Generic.Strong */
   .gu   { color: $lighter-gray; } /* Generic.Subheading */
   .gt   { color: $red; } /* Generic.Traceback */
-  .kc   { color: $violet; font-weight: bold } /* Keyword.Constant */
-  .kd   { color: $violet; font-weight: bold } /* Keyword.Declaration */
-  .kn   { color: $violet; font-weight: bold } /* Keyword.Namespace */
-  .kp   { color: $violet; font-weight: bold } /* Keyword.Pseudo */
-  .kr   { color: $violet; font-weight: bold } /* Keyword.Reserved */
-  .kt   { color: $violet; font-weight: bold } /* Keyword.Type */
+  .kc   { color: $violet; font-weight: bold; } /* Keyword.Constant */
+  .kd   { color: $violet; font-weight: bold; } /* Keyword.Declaration */
+  .kn   { color: $violet; font-weight: bold; } /* Keyword.Namespace */
+  .kp   { color: $violet; font-weight: bold; } /* Keyword.Pseudo */
+  .kr   { color: $violet; font-weight: bold; } /* Keyword.Reserved */
+  .kt   { color: $violet; font-weight: bold; } /* Keyword.Type */
 
   .n    { color: $lightest-gray; } /* Name */
   .na   { color: $lightest-gray; } /* Name.Attribute */
   .nt   { color: $lightest-gray; font-weight: bold; } /* Name.Tag */
-  .ow   { font-weight: bold } /* Operator.Word */
+  .ow   { font-weight: bold; } /* Operator.Word */
   .w    { color: $lightest-gray; } /* Text.Whitespace */
   .m    { color: $blue; } /* Literal.Number */
   .mb   { color: $blue; } /* Literal.Number.Bin */
@@ -51,12 +51,11 @@ pre.highlight {
   .dl   { color: $cyan; } /* Literal.String.Delimiter */
   .sd   { color: $cyan; } /* Literal.String.Doc */
   .s2   { color: $cyan; } /* Literal.String.Double */
-  .se   { color: $cyan; } /* Literal.String.Escape */
+  .se   { color: $red; } /* Literal.String.Escape */
   .sh   { color: $cyan; } /* Literal.String.Heredoc */
-  .si   { color: $cyan; } /* Literal.String.Interpol */
+  .si   { color: $magenta; } /* Literal.String.Interpol */
   .sx   { color: $cyan; } /* Literal.String.Other */
   .sr   { color: $cyan; } /* Literal.String.Regex */
   .s1   { color: $cyan; } /* Literal.String.Single */
-  .ss   { color: $cyan; } /* Literal.String.Symbol */
-
+  .ss   { color: $violet; } /* Literal.String.Symbol */
 }
