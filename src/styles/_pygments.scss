@@ -3,7 +3,7 @@
 
 pre.highlight {
   color: $lightest-gray;
-  background-color: $darkest-gray;
+  background-color: $darker-gray;
 
   .hll { background-color: $darker-gray; }
   .c    { color: $dark-gray; font-style: italic } /* Comment */
@@ -15,11 +15,11 @@ pre.highlight {
   .cs   { color: $dark-gray; font-weight: bold } /* Comment.Special */
   .err  { color: $red; } /* Error */
   .k    { color: $violet; font-weight: bold } /* Keyword */
-  .gd   { color: $darkest-gray; background-color: $gray; } /* Generic.Deleted */
+  .gd   { color: $darker-gray; background-color: $gray; } /* Generic.Deleted */
   .ge   { font-style: italic; } /* Generic.Emph */
   .gr   { color: $red; } /* Generic.Error */
   .gh   { color: $light-gray; } /* Generic.Heading */
-  .gi   { color: $darkest-gray; background-color: $gray; } /* Generic.Inserted */
+  .gi   { color: $darker-gray; background-color: $gray; } /* Generic.Inserted */
   .go   { color: $gray; } /* Generic.Output */
   .gp   { color: $dark-gray; } /* Generic.Prompt */
   .gs   { font-weight: bold; } /* Generic.Strong */

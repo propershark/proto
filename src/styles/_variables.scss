@@ -2,8 +2,7 @@
 $default:       #fff;
 $gray:          #556f77;
 $dark-gray:     darken($gray, 10%);
-$darker-gray:   darken($gray, 20%);
-$darkest-gray:  #002b36;
+$darker-gray:   #002b36;
 $light-gray:    lighten($gray, 10%);
 $lighter-gray:  lighten($gray, 20%);
 $lightest-gray: lighten($gray, 25%);
@@ -26,9 +25,9 @@ $muted-color:       $lighter-gray;
 $text-color-white:  $lightest-gray;
 
 // Backgrounds
-$bg-color:                $white;
-$bg-color-dark:           $darkest-gray;
-$highlight-color:         $offwhite;
+$bg-color:          $white;
+$bg-color-dark:     $darker-gray;
+$highlight-color:   $offwhite;
 
 
 // Spacing

@@ -8,7 +8,7 @@ body {
   margin: 0;
   border-collapse: collapse;
   box-sizing: border-box;
-  color: #2b383c;
+  color: #002b36;
   font-family: "Museo Sans Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI";
   font-size: 14px;
   line-height: 1.8; }
@@ -239,7 +239,7 @@ pre.highlight {
   /* Literal.String.Double */
   /* Literal.String.Symbol */ }
   pre.highlight .hll {
-    background-color: #2b383c; }
+    background-color: #002b36; }
   pre.highlight .c {
     color: #405359;
     font-style: italic; }
