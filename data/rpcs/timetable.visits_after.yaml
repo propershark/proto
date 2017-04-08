@@ -38,21 +38,26 @@ parameters:
     description: The maximum number of visits to return.
 
 
-samples:
-  Without Route Parameter:
-    call: |-
-      timetable.visits_after('BUS215', '20170130 06:40:00', 10)
-    return: |-
-      [
-        ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],
-        ['20170130 06:35:00','20170130 06:45:00','5','to Salisbury'],
-        ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']
-      ]
-  With Route Parameter:
-    call: |-
-      timetable.visits_after('BUS215', '20170130 06:40:00', '1B', 10)
-    return: |-
-      [
-        ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],
-        ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']
-      ]
+samples: |-
+  timetable.visits_after('BUS215', '20170130 06:45:00', 6)
+  #=>
+  [
+    ['20170130 06:45:00', '20170130 06:45:00', '1B', 'to Walmart'],
+    ['20170130 06:35:00', '20170130 06:45:00', '5',  'to Salisbury'],
+    ['20170130 06:50:00', '20170130 06:50:00', '1B', 'to Walmart'],
+    ['20170130 06:45:00', '20170130 06:50:00', '27', 'to Downtown'],
+    ['20170130 06:55:00', '20170130 06:55:00', '1B', 'to Walmart'],
+    ['20170130 07:00:00', '20170130 07:00:00', '1B', 'to Walmart']
+  ]
+
+
+  # Notice how after the first result, entries have wrapped to the next day.
+  timetable.visits_after('BUS215', '20170129 20:45:00', '1B', 5)
+  #=>
+  [
+    ['20170129 20:45:00', '20170129 20:45:00', '1B', 'to Walmart'],
+    ['20170130 06:45:00', '20170130 06:45:00', '1B', 'to Walmart'],
+    ['20170130 06:50:00', '20170130 06:50:00', '1B', 'to Walmart'],
+    ['20170130 06:55:00', '20170130 06:55:00', '1B', 'to Walmart'],
+    ['20170130 07:00:00', '20170130 07:00:00', '1B', 'to Walmart']
+  ]
