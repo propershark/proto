@@ -1,0 +1,15 @@
+@import "_variables.scss";
+
+span.branding {
+  .branding-transio {
+  }
+
+  .branding-tld {
+    color: $lightest-gray;
+  }
+
+  .branding-docs {
+    color: $blue;
+    margin-left: 0.4em;
+  }
+}

@@ -1,0 +1,61 @@
+@import "_variables.scss";
+
+
+pre.highlight {
+  color: $lightest-gray;
+  background-color: $darker-gray;
+
+  .hll { background-color: $darker-gray; }
+  .c    { color: $dark-gray; font-style: italic; } /* Comment */
+  .ch   { color: $dark-gray; font-style: italic; } /* Comment.Hashbang */
+  .cm   { color: $dark-gray; font-style: italic; } /* Comment.Multiline */
+  .cp   { color: $dark-gray; } /* Comment.Preproc */
+  .cpf  { color: $dark-gray; font-style: italic; } /* Comment.PreprocFile */
+  .c1   { color: $dark-gray; font-style: italic; } /* Comment.Single */
+  .cs   { color: $dark-gray; font-weight: bold; } /* Comment.Special */
+  .err  { color: $red; } /* Error */
+  .k    { color: $violet; font-weight: bold; } /* Keyword */
+  .gd   { color: $darker-gray; background-color: $gray; } /* Generic.Deleted */
+  .ge   { font-style: italic; } /* Generic.Emph */
+  .gr   { color: $red; } /* Generic.Error */
+  .gh   { color: $light-gray; } /* Generic.Heading */
+  .gi   { color: $darker-gray; background-color: $gray; } /* Generic.Inserted */
+  .go   { color: $gray; } /* Generic.Output */
+  .gp   { color: $dark-gray; } /* Generic.Prompt */
+  .gs   { font-weight: bold; } /* Generic.Strong */
+  .gu   { color: $lighter-gray; } /* Generic.Subheading */
+  .gt   { color: $red; } /* Generic.Traceback */
+  .kc   { color: $violet; font-weight: bold; } /* Keyword.Constant */
+  .kd   { color: $violet; font-weight: bold; } /* Keyword.Declaration */
+  .kn   { color: $violet; font-weight: bold; } /* Keyword.Namespace */
+  .kp   { color: $violet; font-weight: bold; } /* Keyword.Pseudo */
+  .kr   { color: $violet; font-weight: bold; } /* Keyword.Reserved */
+  .kt   { color: $violet; font-weight: bold; } /* Keyword.Type */
+
+  .n    { color: $lightest-gray; } /* Name */
+  .na   { color: $lightest-gray; } /* Name.Attribute */
+  .nt   { color: $lightest-gray; font-weight: bold; } /* Name.Tag */
+  .ow   { font-weight: bold; } /* Operator.Word */
+  .w    { color: $lightest-gray; } /* Text.Whitespace */
+  .m    { color: $blue; } /* Literal.Number */
+  .mb   { color: $blue; } /* Literal.Number.Bin */
+  .mf   { color: $blue; } /* Literal.Number.Float */
+  .mh   { color: $blue; } /* Literal.Number.Hex */
+  .mi   { color: $blue; } /* Literal.Number.Integer */
+  .mo   { color: $blue; } /* Literal.Number.Oct */
+  .il   { color: $blue; } /* Literal.Number.Integer.Long */
+  .s    { color: $cyan; } /* Literal.String */
+  .sa   { color: $cyan; } /* Literal.String.Affix */
+  .sb   { color: $cyan; } /* Literal.String.Backtick */
+  .sc   { color: $green; } /* Literal.String.Char */
+  .dl   { color: $cyan; } /* Literal.String.Delimiter */
+  .sd   { color: $cyan; } /* Literal.String.Doc */
+  .se   { color: $red; } /* Literal.String.Escape */
+  .sh   { color: $cyan; } /* Literal.String.Heredoc */
+  .si   { color: $magenta; } /* Literal.String.Interpol */
+  .sx   { color: $cyan; } /* Literal.String.Other */
+  .sr   { color: $cyan; } /* Literal.String.Regex */
+  .s1   { color: $cyan; } /* Literal.String.Single */
+  .s2   { color: $cyan; } /* Literal.String.Double */
+  .ss   { color: $orange; } /* Literal.String.Symbol */
+}

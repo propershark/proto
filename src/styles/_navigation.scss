@@ -1,0 +1,61 @@
+@import "_variables.scss";
+
+nav.primary-nav {
+  background-color: $nav-bg-color;
+  height: $nav-height;
+  width: 100%;
+  border-bottom: $nav-border;
+  line-height: 1;
+
+  .title {
+    display: inline-block;
+    font-size: $font-size-hd;
+    font-weight: 700;
+    padding: $u1 $u2;
+    margin-top: $half-u;
+  }
+
+
+  .topic-select {
+    display: inline-block;
+    position: absolute;
+    width: $nav-typeahead-width;
+    height: $nav-height;
+    padding: $u1 $u2;
+    font-size: $font-size-lg;
+    border-left: $nav-border;
+    border-right: $nav-border;
+
+    &:hover {
+      background-color: $nav-hover-color;
+    }
+
+    .proxy {
+      position: absolute;
+      margin-top: $u1+2px;
+      width: 100%;
+
+      &:after {
+        position: absolute;
+        right: $u4;
+        font-family: FontAwesome;
+        color: $dark-gray;
+        content: '\f0d7';
+      }
+    }
+
+    select {
+      width: 100%;
+      height: $nav-height;
+      margin-top: -$u1;
+      margin-left: -$u2;
+      width: $nav-typeahead-width;
+      background-color: inherit;
+      border: none;
+      cursor: pointer;
+      opacity: 0;
+
+      &:focus { outline: none; }
+    }
+  }
+}

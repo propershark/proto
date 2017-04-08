@@ -1,0 +1,73 @@
+// Colors
+$default:       #fff;
+$gray:          #556f77;
+$dark-gray:     darken($gray, 10%);
+$darker-gray:   #002b36;
+$light-gray:    lighten($gray, 10%);
+$lighter-gray:  lighten($gray, 20%);
+$lightest-gray: lighten($gray, 25%);
+
+$white:         lighten($gray, 59%);
+$offwhite:      darken($white, 2%);
+
+$yellow:        #b58900;
+$orange:        #cb4b16;
+$red:           #dc322f;
+$magenta:       #d33682;
+$violet:        #6c71c4;
+$blue:          #268bd2;
+$cyan:          #2aa198;
+$green:         #859900;
+
+// Text colors
+$text-color:        $darker-gray;
+$muted-color:       $lighter-gray;
+$text-color-white:  $lightest-gray;
+
+// Backgrounds
+$bg-color:          $white;
+$bg-color-dark:     $darker-gray;
+$highlight-color:   $offwhite;
+
+
+// Spacing
+$u1:        8px;
+$u2:        $u1*2;
+$u3:        $u1*3;
+$u4:        $u1*4;
+$u6:        $u1*6;
+$u8:        $u1*8;
+$half-u:    $u1/2;
+$quarter-u: $u1/4;
+
+$box-padding:       $u2;
+$text-padding-v:    $half-u;
+$text-padding-h:    $u1;
+$text-padding:      $text-padding-v $text-padding-h;
+
+
+// Borders
+$highlight-border-color:  darken($offwhite, 5%);
+$highlight-border:        1px solid $highlight-border-color;
+$dark-border:             1px solid $dark-gray;
+$border-radius:           $half-u;
+$border-radius-sm:        $quarter-u;
+
+
+// Fonts and sizes
+$font-family:       'Museo Sans Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI';
+$font-family-mono:  'Source Code Pro', monospace;
+$font-size:         14px;
+$font-size-sm:      11px;
+$font-size-lg:      16px;
+$font-size-hd:      24px;
+$line-height:       1.8;
+
+
+// Navigation
+$nav-height:          $u6+1px;
+$nav-typeahead-width: 16em;
+$nav-bg-color:        $highlight-color;
+$nav-hover-color:     darken($nav-bg-color, 5%);
+$nav-border-color:    $highlight-border-color;
+$nav-border:          1px solid $nav-border-color;

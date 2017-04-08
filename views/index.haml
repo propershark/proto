@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %title transio.us | docs
+    %link(rel="stylesheet" href="styles/normalize.css")
+    %link(rel="stylesheet" href="styles/main.css")
+    %link(rel="stylesheet" href="styles/font-awesome.min.css")
+
+  %body
+    .container
+      %nav.primary-nav
+        .title= haml :_branding
+        .topic-select
+          %span.proxy
+          %select
+            %optgroup(label="Timetable")
+              - @rpcs.each do |rpc|
+                %option{value: "#{rpc['name']}", 'data-topic': "#{rpc['id']}"}= rpc['name']
+
+
+      .protocol
+        - @rpcs.each do |rpc|
+          = haml :rpc, locals: { rpc: rpc }
+
+
+
+  %script(src="js/jquery.js")
+  :javascript
+    $('.proto-action').each(function() {
+      $(this).find('.proto-sample').first().toggleClass("visible");
+    });
+
+    $('input[type=radio]').on('change', function() {
+      $(this).closest('.proto-action').find(".proto-sample.visible").toggleClass("visible", false);
+      $('[id="'+$(this).data('content-target')+'"]').toggleClass("visible", $(this).checked);
+    });
+
+    var hash_selected_topic = window.location.hash.substr(1);
+    var default_topic_select_option = $('.topic-select select option[data-topic="'+hash_selected_topic+'"]').val() || $('.topic-select select option:first').val();
+
+    $('.topic-select .proxy').text(default_topic_select_option);
+
+    $('.topic-select select').on('change', function() {
+      $('.topic-select .proxy').text($(this).val());
+      window.location.href = '#' + $(this).find('option:selected').data('topic');
+    });

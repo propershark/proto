@@ -1,8 +1,8 @@
-name: Timetable.visits_after
+name: timetable.visits_after
 id: timetable_visits_after
 spec:
-  call: 'timetable.visits_after(station : String, start : DateTime, route : String?, limit : Int)'
-  return: '[(eta, etd, route_short_name, headsign)...]'
+  call: 'timetable.visits_after(station, start, route?, limit)'
+  return: '[(eta, etd, route_short_name, headsign), ...]'
 meta:
   since: v0.1
   accessibility: public
@@ -19,21 +19,45 @@ description: |-
   If the result list contains no entries, an empty array will be returned.
 
 
-samples:
-  Without Route Parameter:
-    call: |-
-      timetable.visits_after('BUS215', '20170130 06:40:00', 10)
-    return: |-
-      [
-        ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],
-        ['20170130 06:35:00','20170130 06:45:00','5','to Salisbury'],
-        ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']
-      ]
-  With Route Parameter:
-    call: |-
-      timetable.visits_after('BUS215', '20170130 06:40:00', '1B', 10)
-    return: |-
-      [
-        ['20170130 06:45:00','20170130 06:45:00','1B','to Walmart'],
-        ['20170130 06:50:00','20170130 06:50:00','1B','to Walmart']
-      ]
+parameters:
+  - name: station
+    type: String
+    required: true
+    description: The identifier of a station of arrival for visits.
+  - name: start
+    type: DateTime
+    required: true
+    description: The earliest time that a visit should be considered for inclusion.
+  - name: route
+    type: String
+    required: false
+    description: The identifier of a route to filter visits by.
+  - name: limit
+    type: Integer
+    required: true
+    description: The maximum number of visits to return.
+
+
+samples: |-
+  timetable.visits_after('BUS215', '20170130 06:45:00', 6)
+  #=>
+  [
+    ['20170130 06:45:00', '20170130 06:45:00', '1B', 'to Walmart'],
+    ['20170130 06:35:00', '20170130 06:45:00', '5',  'to Salisbury'],
+    ['20170130 06:50:00', '20170130 06:50:00', '1B', 'to Walmart'],
+    ['20170130 06:45:00', '20170130 06:50:00', '27', 'to Downtown'],
+    ['20170130 06:55:00', '20170130 06:55:00', '1B', 'to Walmart'],
+    ['20170130 07:00:00', '20170130 07:00:00', '1B', 'to Walmart']
+  ]
+
+
+  # Notice how after the first result, entries have wrapped to the next day.
+  timetable.visits_after('BUS215', '20170129 20:45:00', '1B', 5)
+  #=>
+  [
+    ['20170129 20:45:00', '20170129 20:45:00', '1B', 'to Walmart'],
+    ['20170130 06:45:00', '20170130 06:45:00', '1B', 'to Walmart'],
+    ['20170130 06:50:00', '20170130 06:50:00', '1B', 'to Walmart'],
+    ['20170130 06:55:00', '20170130 06:55:00', '1B', 'to Walmart'],
+    ['20170130 07:00:00', '20170130 07:00:00', '1B', 'to Walmart']
+  ]

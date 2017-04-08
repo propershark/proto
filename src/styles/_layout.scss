@@ -1,0 +1,18 @@
+@import "_variables.scss";
+
+.container {
+  width: 100%;
+}
+
+.primary-nav {
+  position: fixed;
+}
+
+.protocol {
+  padding-top: $nav-height - 1px;
+}
+
+a.jump-anchor {
+  position: relative;
+  top: -$nav-height+1px;
+}

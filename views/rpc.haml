@@ -1,0 +1,45 @@
+%section{class: "topic rpc #{rpc['meta']['accessibility']}"}
+  %a.jump-anchor{id: "#{rpc['id']}"}
+  .topic-description
+    .title= rpc['name']
+
+    .metabar
+      - rpc['meta'].each do |key, value|
+        .meta-element
+          %span.key= key.gsub(/_/, ' ')
+          %span.value= value.gsub(/_/, ' ')
+
+      - if rpc.dig('links', 'discussion')
+        .meta-element.link
+          %a{href: rpc['links']['discussion'], target: '_blank'}
+            = fa('comments-o').lg
+
+    .description
+      :markdown
+        #{rpc['description']}
+
+    %table.parameters
+      %thead
+        %tr
+          %th Parameter
+          %th Type
+          %th Description
+
+      %tbody
+        - rpc['parameters'].each do |param|
+          %tr
+            %td.name= param['name']
+            %td.type
+              = param['type']
+              - unless param['required']
+                %br
+                %span.optional= '(optional)'
+            %td.description= param['description']
+
+
+  .topic-samples
+    .sample.content
+      :markdown
+        ```ruby
+        #{rpc['samples']}
+        ```
