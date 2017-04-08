@@ -123,7 +123,7 @@ section.topic {
     box-sizing: content-box;
     padding: 16px 16px 32px 32px;
     padding-top: 64px;
-    background-color: #202a2d;
+    background-color: #002b36;
     color: #97aeb5;
     overflow-x: scroll;
     border-top: 1px solid #405359; }
@@ -186,7 +186,7 @@ nav.primary-nav {
 
 pre.highlight {
   color: #97aeb5;
-  background-color: #202a2d;
+  background-color: #002b36;
   /* Comment */
   /* Comment.Hashbang */
   /* Comment.Multiline */
@@ -230,13 +230,13 @@ pre.highlight {
   /* Literal.String.Char */
   /* Literal.String.Delimiter */
   /* Literal.String.Doc */
-  /* Literal.String.Double */
   /* Literal.String.Escape */
   /* Literal.String.Heredoc */
   /* Literal.String.Interpol */
   /* Literal.String.Other */
   /* Literal.String.Regex */
   /* Literal.String.Single */
+  /* Literal.String.Double */
   /* Literal.String.Symbol */ }
   pre.highlight .hll {
     background-color: #2b383c; }
@@ -266,7 +266,7 @@ pre.highlight {
     color: #6c71c4;
     font-weight: bold; }
   pre.highlight .gd {
-    color: #202a2d;
+    color: #002b36;
     background-color: #556f77; }
   pre.highlight .ge {
     font-style: italic; }
@@ -275,7 +275,7 @@ pre.highlight {
   pre.highlight .gh {
     color: #6a8b95; }
   pre.highlight .gi {
-    color: #202a2d;
+    color: #002b36;
     background-color: #556f77; }
   pre.highlight .go {
     color: #556f77; }
@@ -342,8 +342,6 @@ pre.highlight {
     color: #2aa198; }
   pre.highlight .sd {
     color: #2aa198; }
-  pre.highlight .s2 {
-    color: #2aa198; }
   pre.highlight .se {
     color: #dc322f; }
   pre.highlight .sh {
@@ -356,5 +354,7 @@ pre.highlight {
     color: #2aa198; }
   pre.highlight .s1 {
     color: #2aa198; }
+  pre.highlight .s2 {
+    color: #2aa198; }
   pre.highlight .ss {
-    color: #6c71c4; }
+    color: #cb4b16; }

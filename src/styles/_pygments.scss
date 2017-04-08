@@ -50,12 +50,12 @@ pre.highlight {
   .sc   { color: $green; } /* Literal.String.Char */
   .dl   { color: $cyan; } /* Literal.String.Delimiter */
   .sd   { color: $cyan; } /* Literal.String.Doc */
-  .s2   { color: $cyan; } /* Literal.String.Double */
   .se   { color: $red; } /* Literal.String.Escape */
   .sh   { color: $cyan; } /* Literal.String.Heredoc */
   .si   { color: $magenta; } /* Literal.String.Interpol */
   .sx   { color: $cyan; } /* Literal.String.Other */
   .sr   { color: $cyan; } /* Literal.String.Regex */
   .s1   { color: $cyan; } /* Literal.String.Single */
-  .ss   { color: $violet; } /* Literal.String.Symbol */
+  .s2   { color: $cyan; } /* Literal.String.Double */
+  .ss   { color: $orange; } /* Literal.String.Symbol */
 }
