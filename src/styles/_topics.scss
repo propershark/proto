@@ -8,7 +8,7 @@ section.topic {
 
   .topic-description {
     width: 55%;
-    padding: $u2 $u4 $u4 $u2;
+    padding: $u2 $u4 $u4 $u4;
     border-top: $highlight-border;
 
     code {
@@ -93,7 +93,7 @@ section.topic {
     flex: 1 0 $sample-width;
     font-family: $font-family-mono;
     box-sizing: content-box;
-    padding: $u2 $u2 $u4 $u4;
+    padding: $u4;
     padding-top: $u8;
     background-color: $bg-color-dark;
     color: $lightest-gray;

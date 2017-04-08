@@ -68,7 +68,7 @@ section.topic {
     border-top: none; }
   section.topic .topic-description {
     width: 55%;
-    padding: 16px 32px 32px 16px;
+    padding: 16px 32px 32px 32px;
     border-top: 1px solid #e7ecee; }
     section.topic .topic-description code {
       background-color: #f6f8f9;
@@ -121,7 +121,7 @@ section.topic {
     flex: 1 0 81ch;
     font-family: "Source Code Pro", monospace;
     box-sizing: content-box;
-    padding: 16px 16px 32px 32px;
+    padding: 32px;
     padding-top: 64px;
     background-color: #002b36;
     color: #97aeb5;
