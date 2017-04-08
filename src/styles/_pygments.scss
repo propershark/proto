@@ -6,15 +6,15 @@ pre.highlight {
   background-color: $darker-gray;
 
   .hll { background-color: $darker-gray; }
-  .c    { color: $dark-gray; font-style: italic } /* Comment */
-  .ch   { color: $dark-gray; font-style: italic } /* Comment.Hashbang */
-  .cm   { color: $dark-gray; font-style: italic } /* Comment.Multiline */
+  .c    { color: $dark-gray; font-style: italic; } /* Comment */
+  .ch   { color: $dark-gray; font-style: italic; } /* Comment.Hashbang */
+  .cm   { color: $dark-gray; font-style: italic; } /* Comment.Multiline */
   .cp   { color: $dark-gray; } /* Comment.Preproc */
-  .cpf  { color: $dark-gray; font-style: italic } /* Comment.PreprocFile */
-  .c1   { color: $dark-gray; font-style: italic } /* Comment.Single */
-  .cs   { color: $dark-gray; font-weight: bold } /* Comment.Special */
+  .cpf  { color: $dark-gray; font-style: italic; } /* Comment.PreprocFile */
+  .c1   { color: $dark-gray; font-style: italic; } /* Comment.Single */
+  .cs   { color: $dark-gray; font-weight: bold; } /* Comment.Special */
   .err  { color: $red; } /* Error */
-  .k    { color: $violet; font-weight: bold } /* Keyword */
+  .k    { color: $violet; font-weight: bold; } /* Keyword */
   .gd   { color: $darker-gray; background-color: $gray; } /* Generic.Deleted */
   .ge   { font-style: italic; } /* Generic.Emph */
   .gr   { color: $red; } /* Generic.Error */
