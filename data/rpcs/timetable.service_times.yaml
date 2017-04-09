@@ -16,7 +16,7 @@ description: |-
 
   A visit interval is a two-element tuple containing a **time range** (the times between which the interval applies) and a **duration** (the time between arrivals during that time range, represented in minutes). Each date is represented by another two-element tuple containing the date that the entry applies to and a list of visit intervals.
 
-  Dates with only one visit interval still contain an array of visit intervals, the list is just one element long. Dates with no service (0 visit intervals), will contain an empty array.
+  Dates with only one visit interval still contain an array of visit intervals, the list is just one element long. Dates with no service (0 visit intervals), will contain an empty array. There is no set maximum to the number of intervals returned for each date.
 
   Intervals that wrap the midnight boundary represent the end of their time range as a duration since the most recent midnight. In most cases, the end of the interval will occur before the start of the first visit interval on the following day.
 
