@@ -20,6 +20,7 @@ description: |-
 
   Intervals that wrap the midnight boundary represent the end of their time range as a duration since the most recent midnight. In most cases, the end of the interval will occur before the start of the first visit interval on the following day.
 
+  All dates and times are relative to the timezone defined by the agency.
 
 parameters:
   - name: station
